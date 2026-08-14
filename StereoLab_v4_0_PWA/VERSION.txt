@@ -1,4 +1,0 @@
-StereoLab v4.0 PWA
-Base fonctionnelle : StereoLab v3.41 — graduations exactes
-Ajouts v4.0 : manifeste PWA, icônes, service worker et cache hors ligne.
-Aucun changement volontaire du moteur acoustique ni du graphisme principal.
