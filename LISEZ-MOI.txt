@@ -1,25 +1,20 @@
-STEREOLAB v4.0 — PREMIÈRE VERSION PWA
+STEREOLAB v4.1 — TEST TABLETTE
 
-Cette archive est la v3.41 fonctionnelle équipée de la couche nécessaire
-pour devenir une application installable et utilisable hors ligne.
+Cette version part de StereoLab v4.0 stable.
 
-FICHIERS
-- index.html : StereoLab
-- manifest.webmanifest : identité de l'application
-- sw.js : fonctionnement hors ligne / cache
-- icons/ : icônes d'installation
-- VERSION.txt : base de version
+Objectif :
+- conserver le rendu Mac/PC actuel ;
+- utiliser la largeur réelle d'un iPad/tablette au lieu de réduire toute l'interface ;
+- agrandir les zones tactiles ;
+- conserver la fenêtre principale et les résultats en paysage ;
+- en portrait, placer les résultats sous la fenêtre principale.
 
-IMPORTANT
-Le mode "application installable + hors ligne" nécessite que le dossier soit
-servi par une adresse HTTPS (par exemple GitHub Pages) ou par localhost pour
-les tests. Ouvrir index.html directement depuis le Finder permet de voir
-l'interface, mais le service worker ne peut pas s'activer en mode file://.
+Le moteur acoustique n'a pas été modifié.
 
-La prochaine étape recommandée est le déploiement de ce dossier sur GitHub
-Pages. Une fois déployé, la même application pourra être installée sur les
-appareils compatibles et conserver son fonctionnement hors ligne après le
-premier chargement.
+TEST CONSEILLÉ
+1. Tester d'abord le fichier index.html sur Mac : il doit rester identique à v4.0.
+2. Puis publier la version sur GitHub Pages et l'ouvrir sur iPad.
+3. Tester paysage puis portrait.
+4. Vérifier presets, curseurs tactiles, fenêtres Explication / À propos / Réglages.
 
-BASE
-StereoLab v3.41. Aucun calcul acoustique n'a volontairement été modifié.
+La version smartphone n'est volontairement pas traitée dans v4.1.

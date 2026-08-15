@@ -1,4 +1,4 @@
-const CACHE_NAME = 'stereolab-v4-0-shell-1';
+const CACHE_NAME = 'stereolab-v4-1-tablette-1';
 const APP_SHELL = [
   './',
   './index.html',

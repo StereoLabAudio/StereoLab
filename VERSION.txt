@@ -1,4 +1,5 @@
-StereoLab v4.0 PWA
-Base fonctionnelle : StereoLab v3.41 — graduations exactes
-Ajouts v4.0 : manifeste PWA, icônes, service worker et cache hors ligne.
-Aucun changement volontaire du moteur acoustique ni du graphisme principal.
+StereoLab v4.1 Tablette PWA
+Base fonctionnelle : StereoLab v4.0 / v3.41
+Ajout : adaptation responsive native iPad/tablette, paysage et portrait.
+Desktop : comportement conservé.
+Moteur acoustique : aucun changement volontaire.

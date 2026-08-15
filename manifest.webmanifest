@@ -2,7 +2,7 @@
   "id": "./",
   "name": "StereoLab — Calculateur de couples stéréophoniques",
   "short_name": "StereoLab",
-  "description": "Outil pédagogique et professionnel d'étude des couples stéréophoniques.",
+  "description": "StereoLab — version PWA avec adaptation native tablette.",
   "lang": "fr",
   "start_url": "./",
   "scope": "./",
