@@ -1,8 +1,6 @@
-StereoLab v4.2.3 Smartphone PWA
-Base : v4.2.2 Smartphone.
-Corrections smartphone avec les vrais sélecteurs :
-- .reference-actions replacé dans le flux ;
-- .reference-badge repositionné ;
-- .variant-button compacté ;
-- .stage-title corrigé.
+StereoLab v4.2.4 Smartphone PWA
+Base : correction préparée après la v4.2.3 déjà existante.
+Contenu fonctionnel : identique à la correction précédemment préparée.
+Objectif : repositionnement sûr du cartouche de référence et du bouton
+« Créer une variante » sur smartphone, sans casser son accès.
 Mac/iPad et moteur acoustique inchangés.
