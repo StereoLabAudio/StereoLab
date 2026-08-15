@@ -1955,6 +1955,60 @@ body.hide-graphic-info #svgAngleBadge{
 }
 </style>
 
+
+<style>
+/* StereoLab v4.1.5 — iPad portrait
+   Le viewport du graphique est réellement contraint.
+   Paysage validé : aucune modification. */
+@media (max-width:899px) and (orientation:portrait){
+
+  /* La zone centrale ne doit plus réserver une hauteur de type desktop. */
+  .center{
+    height:auto !important;
+    min-height:0 !important;
+    grid-template-rows:158px 430px auto !important;
+  }
+
+  .stage{
+    position:relative !important;
+    height:430px !important;
+    min-height:430px !important;
+    max-height:430px !important;
+    overflow:hidden !important;
+  }
+
+  /* Le dessin est ajusté au viewport portrait au lieu d'en dicter la hauteur. */
+  .stage > svg,
+  .stage svg{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    min-height:0 !important;
+    max-height:none !important;
+    display:block !important;
+  }
+
+  /* Titre compact, toujours au-dessus du dessin. */
+  .stage-title{
+    z-index:5 !important;
+    top:8px !important;
+  }
+  .stage-title div:first-child{
+    font-size:20px !important;
+  }
+  .stage-title .big{
+    font-size:34px !important;
+    line-height:1 !important;
+  }
+
+  /* Les réglages suivent immédiatement le graphique. */
+  .controls{
+    margin-top:0 !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="viewport-shell">
