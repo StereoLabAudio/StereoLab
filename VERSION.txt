@@ -1,7 +1,7 @@
-StereoLab v4.2.1 Smartphone PWA
-Base exacte : StereoLab v4.2.0 Smartphone PWA.
-Correction smartphone : toute la partie basse (Validité, Paramètres, Analyse rapide, Conseils)
-est forcée en une seule colonne pleine largeur.
-Correction des mots coupés lettre par lettre.
-Mac/iPad : inchangés.
-Moteur acoustique : inchangé.
+StereoLab v4.2.2 Smartphone PWA
+Base : v4.2.1 Smartphone.
+Corrections smartphone uniquement :
+- cartouche « référence verrouillée » repositionné pour ne plus chevaucher VALIDÉ ;
+- bouton « Créer une variante » compacté ;
+- titre « Angle utile de prise de son » compacté.
+Mise en page v4.2.1, Mac/iPad et moteur acoustique inchangés.
