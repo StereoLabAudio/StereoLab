@@ -1788,137 +1788,148 @@ body.hide-graphic-info #svgAngleBadge{
 
 
 <style>
-/* StereoLab v4.2 — iPad portrait
+/* StereoLab v4.1.2 — iPad portrait
    Le paysage v4.1.1 reste inchangé. */
-@media (min-width:700px) and (max-width:899px) and (orientation:portrait){
-  body{
-    overflow:auto !important;
-    background:#06111c;
-  }
-  .viewport-shell{
-    position:relative !important;
-    min-height:100dvh;
-    overflow:visible !important;
-  }
-  .app{
-    width:100% !important;
-    height:auto !important;
-    min-height:100dvh;
-    overflow:visible !important;
-    padding:8px !important;
-    grid-template-rows:auto auto !important;
-  }
+@media (max-width:899px) and (orientation:portrait){
 
-  /* En-tête compact, mais commandes toujours accessibles au doigt. */
-  .header{
-    grid-template-columns:1fr !important;
-    min-height:78px !important;
-    height:auto !important;
-    gap:3px !important;
-  }
-  .brand{
-    text-align:center;
-    font-size:25px !important;
-  }
-  .brand small{font-size:11px !important}
-  .header-links{
-    justify-content:center !important;
-    gap:8px 18px !important;
-  }
-  .top-link{
-    min-height:34px !important;
-    font-size:11px !important;
-  }
-
-  /* Navigation à gauche + contenu principal. */
+  /* Barre latérale -> barre horizontale compacte. */
   .workspace{
-    grid-template-columns:82px minmax(0,1fr) !important;
+    grid-template-columns:1fr !important;
     grid-template-areas:
-      "left center"
-      "left right" !important;
+      "left"
+      "center"
+      "right" !important;
     gap:7px !important;
-    align-items:start;
   }
   .left{
     grid-area:left !important;
-    position:sticky !important;
-    top:8px;
-    height:calc(100dvh - 16px) !important;
+    position:static !important;
+    height:64px !important;
+    min-height:64px !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr 1.25fr !important;
+    gap:0 !important;
+    overflow:hidden !important;
+  }
+  .side-nav{
+    display:contents !important;
   }
   .side-nav .nav-item{
-    min-height:100px !important;
-    font-size:10.5px !important;
+    min-height:64px !important;
+    height:64px !important;
+    padding:4px 8px !important;
+    border-bottom:0 !important;
+    border-right:1px solid var(--line) !important;
+    display:flex !important;
+    flex-direction:row !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:7px !important;
+    font-size:11px !important;
+    line-height:1.1 !important;
   }
-  .ab-memory{padding:6px !important}
-  .ab-memory-title{font-size:10px !important}
+  .side-nav .nav-icon{
+    font-size:18px !important;
+    margin:0 !important;
+  }
 
-  /* Vue centrale : grande priorité au graphique. */
+  /* Mémoire A/B devient un accès compact ; son contenu reste fonctionnel. */
+  .ab-memory{
+    position:relative !important;
+    height:64px !important;
+    min-height:64px !important;
+    padding:4px 6px !important;
+    display:grid !important;
+    grid-template-columns:auto 1fr 1fr !important;
+    grid-template-rows:1fr !important;
+    align-items:center !important;
+    gap:5px !important;
+    border-top:0 !important;
+  }
+  .ab-memory-title{
+    margin:0 !important;
+    font-size:9px !important;
+    line-height:1.05 !important;
+  }
+  .ab-slot{
+    display:grid !important;
+    grid-template-columns:30px 1fr !important;
+    gap:3px !important;
+    margin:0 !important;
+  }
+  .ab-btn{
+    width:30px !important;
+    height:38px !important;
+    min-width:30px !important;
+    min-height:38px !important;
+  }
+  .ab-store{
+    height:38px !important;
+    min-height:38px !important;
+    padding:2px !important;
+    font-size:8px !important;
+  }
+  .ab-reset{
+    display:none !important;
+  }
+
   .center{
     grid-area:center !important;
     height:auto !important;
     min-height:0 !important;
-    grid-template-rows:132px 560px auto !important;
+    grid-template-rows:122px 620px auto !important;
     gap:7px !important;
   }
 
-  /* Les sélecteurs passent l'un sous l'autre pour éviter leur écrasement. */
+  /* Les deux sélecteurs restent côte à côte mais prennent moins de hauteur. */
   .selectors{
-    grid-template-columns:1fr !important;
-    grid-template-rows:1fr 1fr !important;
-    gap:5px !important;
+    min-height:122px !important;
   }
-  .selector-box{
-    min-width:0 !important;
-    padding:6px 10px !important;
+  .selector-block{
+    padding:10px 12px !important;
   }
-  .selector-box label{font-size:11px !important}
-  .selector-box select{
-    height:38px !important;
-    font-size:15px !important;
+  .selector-label{
+    margin-bottom:7px !important;
   }
 
+  /* Grande vue conservée en largeur mais nettement moins haute. */
   .stage{
-    min-height:560px !important;
+    height:620px !important;
+    min-height:620px !important;
+    overflow:hidden !important;
   }
   .stage-title{
     top:10px !important;
   }
-  .stage-title div:first-child{font-size:18px !important}
-  .stage-title .big{font-size:38px !important}
-  .stage-title small{font-size:11px !important}
-  .reference-actions{
-    top:8px !important;
-    right:8px !important;
-    max-width:48% !important;
+  .stage-title div:first-child{
+    font-size:20px !important;
   }
-  .reference-badge{font-size:9px !important}
+  .stage-title .big{
+    font-size:38px !important;
+  }
+  .stage-title small{
+    font-size:12px !important;
+  }
+  #stageSvg{
+    transform:translateY(-20px) scale(.88);
+    transform-origin:50% 50%;
+  }
+  .legend{
+    bottom:15px !important;
+    left:20px !important;
+    font-size:11px !important;
+  }
 
-  /* Commandes : empilées, chacune garde toute la largeur utile. */
+  /* Commandes immédiatement sous la vue, en deux cartes empilées. */
   .controls{
     grid-template-columns:1fr !important;
     gap:7px !important;
   }
   .control-card{
-    min-height:145px !important;
-    padding:9px 11px !important;
-  }
-  .control-head{font-size:12px !important}
-  .control-value{font-size:20px !important}
-  .slider-line{
-    grid-template-columns:50px minmax(0,1fr) 50px !important;
-    gap:11px !important;
-  }
-  .step{
-    width:50px !important;
-    min-width:50px !important;
-    height:46px !important;
-  }
-  #angleScale,#spacingScale{
-    margin-left:76px !important;
-    margin-right:76px !important;
+    min-height:150px !important;
   }
 
-  /* Résultats sous les commandes, en deux colonnes quand c'est pertinent. */
+  /* Résultats sous les commandes, sur toute la largeur. */
   .right{
     grid-area:right !important;
     display:grid !important;
@@ -1926,8 +1937,8 @@ body.hide-graphic-info #svgAngleBadge{
     grid-template-rows:auto auto !important;
     gap:7px !important;
     overflow:visible !important;
-    padding:0 0 12px 0 !important;
-    margin-top:7px !important;
+    margin:0 !important;
+    padding:0 0 14px 0 !important;
   }
   .right .results{
     grid-column:1 !important;
@@ -1938,16 +1949,18 @@ body.hide-graphic-info #svgAngleBadge{
   .right .advice{
     grid-column:1 / -1 !important;
   }
+}
+
+/* iPad portrait étroit : résultats l'un sous l'autre si nécessaire. */
+@media (max-width:720px) and (orientation:portrait){
+  .right{
+    grid-template-columns:1fr !important;
+  }
   .right .results,
   .right .quick,
   .right .advice{
-    padding:9px !important;
+    grid-column:1 !important;
   }
-  .right .result-card{
-    padding:7px 8px !important;
-  }
-  .right .result-card strong{font-size:14px !important}
-  .right .result-card small{font-size:10px !important}
 }
 </style>
 

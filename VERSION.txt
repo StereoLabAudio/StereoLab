@@ -1,6 +1,5 @@
-StereoLab v4.2 iPad paysage + portrait PWA
-Base paysage : v4.1.1 validée sur iPad.
-Ajout : organisation spécifique iPad portrait.
-Portrait : sélecteurs empilés, grande vue centrale, commandes tactiles empilées,
-résultats sous la vue centrale.
-Moteur acoustique inchangé.
+StereoLab v4.1.2 iPad portrait PWA
+Base : v4.1.1 iPad paysage validée.
+Portrait : navigation horizontale, scène moins haute, commandes rapprochées,
+résultats placés sous les commandes.
+Paysage : v4.1.1 conservée. Moteur acoustique inchangé.
