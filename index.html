@@ -2460,6 +2460,92 @@ body.hide-graphic-info #svgAngleBadge{
 }
 </style>
 
+
+<style>
+/* StereoLab v4.2.1 — correction smartphone :
+   toute la partie résultats passe en une seule colonne pleine largeur.
+   Mac/iPad inchangés. */
+@media (max-width:599px){
+
+  /* Sélecteurs du haut : une seule colonne lisible */
+  .preset-row,
+  .top-controls,
+  .selector-row,
+  .couple-directivity-row{
+    grid-template-columns:1fr !important;
+  }
+
+  /* Colonne de résultats : jamais côte à côte sur smartphone */
+  .right{
+    display:block !important;
+    width:100% !important;
+    overflow:visible !important;
+    padding:0 !important;
+  }
+
+  .right > *,
+  .right .results,
+  .right .quick,
+  .right .advice,
+  .right .panel{
+    width:100% !important;
+    max-width:none !important;
+    min-width:0 !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  /* Si un ancien grid portrait iPad subsiste, on neutralise ses placements */
+  .right .results,
+  .right .quick,
+  .right .advice{
+    grid-column:auto !important;
+    grid-row:auto !important;
+  }
+
+  /* Paramètres du couple : cartes pleine largeur */
+  .right .result-card{
+    grid-template-columns:50px minmax(0,1fr) !important;
+  }
+  .right .result-card > *,
+  .right .result-card strong,
+  .right .result-card small,
+  .right .result-card span{
+    min-width:0 !important;
+    overflow-wrap:normal !important;
+    word-break:normal !important;
+    white-space:normal !important;
+  }
+
+  /* Analyse rapide et conseils : texte horizontal normal */
+  .right .quick,
+  .right .advice,
+  .right .advice-grid,
+  .right .advice-row{
+    min-width:0 !important;
+  }
+  .right .advice-row{
+    display:grid !important;
+    grid-template-columns:110px minmax(0,1fr) !important;
+    gap:10px !important;
+  }
+  .right .advice-row *,
+  .right .advice-row strong,
+  .right .advice-row span{
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+    white-space:normal !important;
+  }
+
+  /* Évite les mots cassés lettre par lettre */
+  .right{
+    word-break:normal !important;
+    overflow-wrap:normal !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="viewport-shell">

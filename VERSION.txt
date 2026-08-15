@@ -1,14 +1,7 @@
-StereoLab v4.2.0 Smartphone PWA
-Base exacte : StereoLab v4.1.6 iPad Finition PWA.
-
-Smartphone <= 599 px :
-- navigation secondaire compacte et horizontale ;
-- Mémoire A/B contenue sans débordement ;
-- Type de couple et Directivité l'un sous l'autre ;
-- graphique plein écran compacté et cartouche déplacé ;
-- commandes Angle puis Espacement verticales et tactiles ;
-- résultats et conseils en dessous avec défilement naturel ;
-- fenêtres Explication / À propos / Réglages adaptées.
-
-Mac et iPad : inchangés.
+StereoLab v4.2.1 Smartphone PWA
+Base exacte : StereoLab v4.2.0 Smartphone PWA.
+Correction smartphone : toute la partie basse (Validité, Paramètres, Analyse rapide, Conseils)
+est forcée en une seule colonne pleine largeur.
+Correction des mots coupés lettre par lettre.
+Mac/iPad : inchangés.
 Moteur acoustique : inchangé.
