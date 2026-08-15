@@ -1788,178 +1788,136 @@ body.hide-graphic-info #svgAngleBadge{
 
 
 <style>
-/* StereoLab v4.1.2 — iPad portrait
+/* StereoLab v4.1.3 — iPad portrait.
    Le paysage v4.1.1 reste inchangé. */
 @media (max-width:899px) and (orientation:portrait){
-
-  /* Barre latérale -> barre horizontale compacte. */
+  /* Navigation secondaire horizontale sur toute la largeur. */
   .workspace{
+    display:grid !important;
     grid-template-columns:1fr !important;
     grid-template-areas:
       "left"
       "center"
       "right" !important;
-    gap:7px !important;
+    gap:8px !important;
   }
   .left{
     grid-area:left !important;
     position:static !important;
-    height:64px !important;
-    min-height:64px !important;
+    width:100% !important;
+    height:82px !important;
+    min-height:82px !important;
     display:grid !important;
     grid-template-columns:1fr 1fr 1.25fr !important;
-    gap:0 !important;
     overflow:hidden !important;
   }
   .side-nav{
     display:contents !important;
   }
   .side-nav .nav-item{
-    min-height:64px !important;
-    height:64px !important;
-    padding:4px 8px !important;
+    min-height:82px !important;
+    height:82px !important;
     border-bottom:0 !important;
-    border-right:1px solid var(--line) !important;
+    border-right:1px solid var(--border) !important;
+    padding:5px 8px !important;
+    font-size:12px !important;
+  }
+  .side-nav .nav-item:last-of-type{border-right:0 !important}
+  .side-nav .nav-icon{font-size:20px !important}
+  .ab-memory{
+    position:static !important;
+    height:82px !important;
+    min-height:82px !important;
     display:flex !important;
     flex-direction:row !important;
+    align-items:center !important;
     justify-content:center !important;
-    align-items:center !important;
-    gap:7px !important;
-    font-size:11px !important;
-    line-height:1.1 !important;
-  }
-  .side-nav .nav-icon{
-    font-size:18px !important;
-    margin:0 !important;
-  }
-
-  /* Mémoire A/B devient un accès compact ; son contenu reste fonctionnel. */
-  .ab-memory{
-    position:relative !important;
-    height:64px !important;
-    min-height:64px !important;
-    padding:4px 6px !important;
-    display:grid !important;
-    grid-template-columns:auto 1fr 1fr !important;
-    grid-template-rows:1fr !important;
-    align-items:center !important;
-    gap:5px !important;
-    border-top:0 !important;
+    gap:6px !important;
+    padding:7px !important;
+    border:0 !important;
   }
   .ab-memory-title{
-    margin:0 !important;
-    font-size:9px !important;
-    line-height:1.05 !important;
+    margin:0 4px 0 0 !important;
+    white-space:nowrap;
+  }
+  .ab-slots{
+    display:flex !important;
+    flex-direction:row !important;
+    gap:5px !important;
   }
   .ab-slot{
-    display:grid !important;
-    grid-template-columns:30px 1fr !important;
-    gap:3px !important;
-    margin:0 !important;
+    display:flex !important;
+    flex-direction:row !important;
+    gap:4px !important;
   }
-  .ab-btn{
-    width:30px !important;
-    height:38px !important;
-    min-width:30px !important;
-    min-height:38px !important;
-  }
-  .ab-store{
-    height:38px !important;
-    min-height:38px !important;
-    padding:2px !important;
-    font-size:8px !important;
-  }
-  .ab-reset{
-    display:none !important;
-  }
+  .ab-reset{display:none !important}
 
   .center{
     grid-area:center !important;
+    width:100% !important;
     height:auto !important;
     min-height:0 !important;
-    grid-template-rows:122px 620px auto !important;
-    gap:7px !important;
+    grid-template-rows:158px 620px auto !important;
+    gap:8px !important;
   }
 
-  /* Les deux sélecteurs restent côte à côte mais prennent moins de hauteur. */
-  .selectors{
-    min-height:122px !important;
-  }
-  .selector-block{
-    padding:10px 12px !important;
-  }
-  .selector-label{
-    margin-bottom:7px !important;
+  /* Sélecteurs côte à côte. */
+  .indicators{
+    min-height:158px !important;
+    height:158px !important;
   }
 
-  /* Grande vue conservée en largeur mais nettement moins haute. */
+  /* Fenêtre graphique nettement moins haute, mais toujours pleine largeur. */
   .stage{
     height:620px !important;
     min-height:620px !important;
     overflow:hidden !important;
   }
   .stage-title{
-    top:10px !important;
+    top:14px !important;
   }
-  .stage-title div:first-child{
-    font-size:20px !important;
-  }
-  .stage-title .big{
-    font-size:38px !important;
-  }
-  .stage-title small{
-    font-size:12px !important;
-  }
-  #stageSvg{
-    transform:translateY(-20px) scale(.88);
-    transform-origin:50% 50%;
-  }
-  .legend{
-    bottom:15px !important;
-    left:20px !important;
-    font-size:11px !important;
+  .stage-title div:first-child{font-size:22px !important}
+  .stage-title .big{font-size:38px !important}
+  .stage-title small{font-size:12px !important}
+
+  /* Le SVG garde toute sa géométrie ; on le fait simplement tenir dans
+     la fenêtre portrait plus courte, sans toucher aux calculs. */
+  .stage svg{
+    width:100% !important;
+    height:100% !important;
+    max-height:620px !important;
   }
 
-  /* Commandes immédiatement sous la vue, en deux cartes empilées. */
+  /* Les deux réglages sont immédiatement sous le graphique. */
   .controls{
+    display:grid !important;
     grid-template-columns:1fr !important;
-    gap:7px !important;
+    gap:8px !important;
   }
   .control-card{
-    min-height:150px !important;
+    min-height:158px !important;
   }
 
-  /* Résultats sous les commandes, sur toute la largeur. */
+  /* Résultats ensuite, en deux colonnes lorsque cela reste lisible. */
   .right{
     grid-area:right !important;
     display:grid !important;
     grid-template-columns:1fr 1fr !important;
     grid-template-rows:auto auto !important;
-    gap:7px !important;
+    gap:8px !important;
     overflow:visible !important;
-    margin:0 !important;
     padding:0 0 14px 0 !important;
+    margin:0 !important;
   }
-  .right .results{
-    grid-column:1 !important;
-  }
-  .right .quick{
-    grid-column:2 !important;
-  }
-  .right .advice{
-    grid-column:1 / -1 !important;
-  }
-}
+  .right .results{grid-column:1 !important}
+  .right .quick{grid-column:2 !important}
+  .right .advice{grid-column:1 / -1 !important}
 
-/* iPad portrait étroit : résultats l'un sous l'autre si nécessaire. */
-@media (max-width:720px) and (orientation:portrait){
-  .right{
-    grid-template-columns:1fr !important;
+  #presetStatus{
+    max-width:58vw !important;
   }
-  .right .results,
-  .right .quick,
-  .right .advice{
-    grid-column:1 !important;
+  .reference-actions{
+    max-width:44% !important;
   }
 }
 </style>
