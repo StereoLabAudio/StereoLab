@@ -1,5 +1,5 @@
-StereoLab v4.1 Tablette PWA
-Base fonctionnelle : StereoLab v4.0 / v3.41
-Ajout : adaptation responsive native iPad/tablette, paysage et portrait.
-Desktop : comportement conservé.
-Moteur acoustique : aucun changement volontaire.
+StereoLab v4.1.1 iPad paysage PWA
+Base : StereoLab v4.1 Tablette PWA
+Corrections : navigation gauche élargie, mémoire A/B mieux contenue,
+colonne droite et commandes inférieures légèrement compactées.
+Zone graphique centrale conservée. Moteur acoustique inchangé.

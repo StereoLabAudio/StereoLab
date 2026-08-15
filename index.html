@@ -1678,6 +1678,114 @@ body.hide-graphic-info #svgAngleBadge{
    ils seront traités dans la future version smartphone. */
 </style>
 
+
+<style>
+/* StereoLab v4.1.1 — finitions iPad/tablette paysage
+   Corrections ciblées d'après le test réel sur iPad. */
+@media (min-width:900px) and (max-width:1199px) and (orientation:landscape){
+
+  /* Un peu plus de largeur à la navigation pour éviter COMPARAISON tronqué. */
+  .workspace{
+    grid-template-columns:88px minmax(0,1fr) 296px !important;
+  }
+
+  .side-nav .nav-item{
+    font-size:10.5px !important;
+    line-height:1.22 !important;
+    padding-left:4px !important;
+    padding-right:4px !important;
+  }
+
+  .ab-memory{
+    padding-left:5px !important;
+    padding-right:5px !important;
+  }
+  .ab-memory-title{
+    font-size:10px !important;
+  }
+  .ab-slot{
+    gap:4px !important;
+  }
+  .ab-btn,
+  .ab-store{
+    min-width:0 !important;
+  }
+  .ab-store{
+    font-size:9px !important;
+    padding-left:3px !important;
+    padding-right:3px !important;
+  }
+
+  /* Récupère quelques pixels en hauteur sans toucher à la grande vue centrale. */
+  .center{
+    grid-template-rows:64px minmax(0,1fr) 158px !important;
+  }
+
+  .control-card{
+    padding-top:7px !important;
+    padding-bottom:7px !important;
+  }
+  .slider-line{
+    margin-top:6px !important;
+  }
+  #angleScale,
+  #spacingScale{
+    margin-top:3px !important;
+    height:14px !important;
+  }
+  .control-note{
+    margin-top:5px !important;
+    padding-top:5px !important;
+    padding-bottom:5px !important;
+    line-height:1.22 !important;
+  }
+
+  /* Colonne droite légèrement plus compacte pour que Conseils d'utilisation reste accessible. */
+  .right{
+    gap:5px !important;
+  }
+  .right .results,
+  .right .quick,
+  .right .advice{
+    padding:7px 9px !important;
+  }
+  .right .results h2,
+  .right .quick h2,
+  .right .advice h2{
+    margin-bottom:4px !important;
+  }
+  .right .result-card{
+    padding:6px 8px !important;
+    margin-bottom:4px !important;
+  }
+  .right .result-card strong{
+    line-height:1.05 !important;
+  }
+  .right .metric{
+    padding-top:4px !important;
+    padding-bottom:4px !important;
+  }
+  .right .balance{
+    margin-top:6px !important;
+    margin-bottom:3px !important;
+  }
+  .right .advice-grid{
+    gap:2px !important;
+  }
+  .right .advice-row{
+    padding-top:3px !important;
+    padding-bottom:3px !important;
+    line-height:1.15 !important;
+  }
+
+  /* Le défilement reste disponible si Safari réserve davantage de hauteur à ses barres. */
+  .right{
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="viewport-shell">
