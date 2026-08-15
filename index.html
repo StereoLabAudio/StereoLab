@@ -2009,6 +2009,37 @@ body.hide-graphic-info #svgAngleBadge{
 }
 </style>
 
+
+<style>
+/* StereoLab v4.1.6 — finition iPad portrait.
+   Réaffiche uniquement la fonction Réinitialiser A/B existante.
+   Aucun changement du graphique, du paysage ou du moteur acoustique. */
+@media (max-width:899px) and (orientation:portrait){
+  .ab-reset,
+  .ab-reset-btn,
+  #abReset,
+  #resetAB{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+  }
+
+  .ab-reset,
+  .ab-reset-btn{
+    min-width:0 !important;
+    width:auto !important;
+    height:36px !important;
+    padding:4px 8px !important;
+    margin:0 !important;
+    font-size:9px !important;
+    line-height:1.05 !important;
+    white-space:normal !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="viewport-shell">

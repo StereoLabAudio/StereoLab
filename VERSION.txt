@@ -1,8 +1,6 @@
-StereoLab v4.1.5 iPad Portrait PWA
-Base exacte : StereoLab v4.1.4.
-Correction : le SVG du graphique est désormais contraint par un viewport portrait de 430 px
-et ne peut plus imposer sa propre hauteur.
-Les réglages suivent immédiatement le graphique.
-Paysage v4.1.1 : inchangé.
-Organisation de la partie basse : inchangée.
+StereoLab v4.1.6 iPad Finition PWA
+Base exacte : StereoLab v4.1.5 validée.
+Finition portrait : réaffichage compact de la fonction Réinitialiser A/B existante.
+Graphique portrait : inchangé.
+Paysage validé : inchangé.
 Moteur acoustique : inchangé.
