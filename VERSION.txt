@@ -1,5 +1,6 @@
-StereoLab v4.1.1 iPad paysage PWA
-Base : StereoLab v4.1 Tablette PWA
-Corrections : navigation gauche élargie, mémoire A/B mieux contenue,
-colonne droite et commandes inférieures légèrement compactées.
-Zone graphique centrale conservée. Moteur acoustique inchangé.
+StereoLab v4.2 iPad paysage + portrait PWA
+Base paysage : v4.1.1 validée sur iPad.
+Ajout : organisation spécifique iPad portrait.
+Portrait : sélecteurs empilés, grande vue centrale, commandes tactiles empilées,
+résultats sous la vue centrale.
+Moteur acoustique inchangé.
