@@ -1,4 +1,4 @@
-const CACHE_NAME = 'stereolab-v4-1-6-ipad-finition';
+const CACHE_NAME = 'stereolab-v4-2-0-smartphone';
 const APP_SHELL = [
   './',
   './index.html',

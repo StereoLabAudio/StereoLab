@@ -2040,6 +2040,426 @@ body.hide-graphic-info #svgAngleBadge{
 }
 </style>
 
+
+<style>
+/* StereoLab v4.2.0 — interface smartphone.
+   Mac / iPad >= 600 px : inchangés. */
+@media (max-width:599px){
+
+  html, body{
+    width:100%;
+    min-width:0 !important;
+    overflow-x:hidden !important;
+  }
+
+  body{
+    -webkit-text-size-adjust:100%;
+    background:#06111b;
+  }
+
+  .viewport-shell{
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    overflow:visible !important;
+    min-height:100dvh;
+  }
+
+  .app{
+    width:100% !important;
+    min-width:0 !important;
+    height:auto !important;
+    min-height:100dvh !important;
+    transform:none !important;
+    margin:0 !important;
+    padding:10px !important;
+    display:block !important;
+    overflow:visible !important;
+  }
+
+  /* En-tête */
+  .header{
+    height:auto !important;
+    min-height:0 !important;
+    display:block !important;
+    padding:8px 4px 12px !important;
+  }
+
+  .brand{
+    text-align:center !important;
+    font-size:30px !important;
+    line-height:1 !important;
+    margin-bottom:8px !important;
+  }
+
+  .brand small{
+    display:block !important;
+    font-size:13px !important;
+    margin-top:7px !important;
+    line-height:1.25 !important;
+  }
+
+  .header-links{
+    justify-content:center !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:6px 18px !important;
+    font-size:12px !important;
+    margin-top:12px !important;
+  }
+
+  .top-link{
+    min-height:34px !important;
+    font-size:12px !important;
+  }
+
+  /* L'espace principal devient un flux vertical */
+  .workspace{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:9px !important;
+    min-height:0 !important;
+  }
+
+  /* Navigation secondaire horizontale compacte */
+  .left{
+    order:0 !important;
+    position:static !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr 1.35fr !important;
+    grid-template-rows:auto !important;
+    gap:0 !important;
+    overflow:hidden !important;
+  }
+
+  .side-nav{
+    display:contents !important;
+  }
+
+  .side-nav .nav-item{
+    min-height:72px !important;
+    height:auto !important;
+    padding:8px 4px !important;
+    border-bottom:0 !important;
+    border-right:1px solid rgba(126,151,169,.22) !important;
+    font-size:10px !important;
+    line-height:1.15 !important;
+    text-align:center !important;
+  }
+
+  .side-nav .nav-item:last-child{
+    border-right:0 !important;
+  }
+
+  .side-nav .nav-icon{
+    font-size:19px !important;
+    margin-bottom:3px !important;
+  }
+
+  /* Mémoire A/B dans le 3e segment, compacte et sans débordement */
+  .ab-memory{
+    position:static !important;
+    width:auto !important;
+    min-width:0 !important;
+    height:auto !important;
+    padding:7px 5px !important;
+    display:grid !important;
+    grid-template-columns:auto 32px 44px 32px 44px !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:4px !important;
+    overflow:hidden !important;
+  }
+
+  .ab-memory-title{
+    font-size:8.5px !important;
+    line-height:1.05 !important;
+    margin:0 2px 0 0 !important;
+    white-space:nowrap !important;
+  }
+
+  .ab-slot{
+    display:contents !important;
+  }
+
+  .ab-btn{
+    width:32px !important;
+    min-width:32px !important;
+    height:34px !important;
+    font-size:16px !important;
+    padding:0 !important;
+  }
+
+  .ab-store{
+    width:44px !important;
+    min-width:44px !important;
+    height:34px !important;
+    font-size:8px !important;
+    line-height:1 !important;
+    padding:0 2px !important;
+  }
+
+  .ab-reset{
+    grid-column:1 / -1 !important;
+    width:100% !important;
+    height:26px !important;
+    min-height:26px !important;
+    margin-top:4px !important;
+    font-size:8px !important;
+    padding:2px 4px !important;
+  }
+
+  /* Centre en flux vertical */
+  .center{
+    order:1 !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:9px !important;
+  }
+
+  /* Les 2 sélecteurs passent l'un sous l'autre */
+  .indicator{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto auto !important;
+    gap:0 !important;
+    min-height:0 !important;
+  }
+
+  .indicator > div{
+    width:100% !important;
+    min-width:0 !important;
+    padding:12px 14px !important;
+    border-right:0 !important;
+    border-bottom:1px solid rgba(126,151,169,.28) !important;
+  }
+
+  .indicator > div:last-child{
+    border-bottom:0 !important;
+  }
+
+  .indicator .label{
+    font-size:12px !important;
+    margin-bottom:7px !important;
+  }
+
+  .indicator select{
+    width:100% !important;
+    max-width:100% !important;
+    font-size:16px !important;
+    min-height:46px !important;
+    padding-left:12px !important;
+    padding-right:44px !important;
+  }
+
+  /* Graphique smartphone */
+  .stage{
+    position:relative !important;
+    width:100% !important;
+    height:460px !important;
+    min-height:460px !important;
+    max-height:460px !important;
+    overflow:hidden !important;
+  }
+
+  .stage > svg,
+  .stage svg{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    min-height:0 !important;
+    max-height:none !important;
+    display:block !important;
+  }
+
+  .stage-title{
+    top:10px !important;
+    left:12px !important;
+    right:12px !important;
+    width:auto !important;
+    z-index:5 !important;
+  }
+
+  .stage-title div:first-child{
+    font-size:18px !important;
+    line-height:1.08 !important;
+    max-width:78% !important;
+    margin:0 auto !important;
+  }
+
+  .stage-title .big{
+    font-size:38px !important;
+    line-height:1 !important;
+  }
+
+  .stage-title small{
+    font-size:11px !important;
+  }
+
+  /* Le cartouche ne doit plus chevaucher le titre */
+  .reference-actions{
+    position:absolute !important;
+    top:82px !important;
+    right:10px !important;
+    left:auto !important;
+    max-width:52% !important;
+    z-index:6 !important;
+  }
+
+  .reference-badge{
+    font-size:9px !important;
+    line-height:1.2 !important;
+    white-space:normal !important;
+    text-align:right !important;
+    padding:6px 8px !important;
+  }
+
+  /* Commandes verticales, grosses cibles tactiles */
+  .controls{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:9px !important;
+  }
+
+  .control-card{
+    width:100% !important;
+    padding:12px 12px !important;
+  }
+
+  .control-head{
+    align-items:flex-start !important;
+    gap:8px !important;
+    font-size:12px !important;
+  }
+
+  .control-head > span:first-child{
+    max-width:70% !important;
+    line-height:1.2 !important;
+  }
+
+  .control-value{
+    font-size:21px !important;
+    min-width:82px !important;
+  }
+
+  .slider-line{
+    grid-template-columns:48px minmax(0,1fr) 48px !important;
+    gap:10px !important;
+    margin-top:10px !important;
+  }
+
+  .step{
+    width:48px !important;
+    min-width:48px !important;
+    height:48px !important;
+    font-size:27px !important;
+  }
+
+  input[type=range]{
+    height:10px !important;
+  }
+
+  input[type=range]::-webkit-slider-thumb{
+    width:32px !important;
+    height:32px !important;
+  }
+
+  #angleScale,
+  #spacingScale{
+    margin-left:71px !important;
+    margin-right:71px !important;
+    font-size:10px !important;
+    height:15px !important;
+  }
+
+  .control-note{
+    font-size:11px !important;
+    line-height:1.25 !important;
+    padding:7px 9px !important;
+  }
+
+  /* Résultats après les commandes */
+  .right{
+    order:2 !important;
+    width:100% !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-auto-rows:auto !important;
+    gap:9px !important;
+    overflow:visible !important;
+    padding:0 !important;
+  }
+
+  .right .results,
+  .right .quick,
+  .right .advice{
+    width:100% !important;
+  }
+
+  .right .results h2,
+  .right .quick h2,
+  .right .advice h2{
+    font-size:12px !important;
+  }
+
+  .right .result-card{
+    padding:8px 9px !important;
+  }
+
+  .right .result-card strong{
+    font-size:15px !important;
+  }
+
+  .right .quick{
+    min-height:0 !important;
+  }
+
+  .right .advice-row{
+    font-size:10px !important;
+    line-height:1.3 !important;
+  }
+
+  /* Fenêtres modales adaptées smartphone */
+  .top-panel-overlay{
+    padding:10px !important;
+  }
+
+  .top-panel-dialog{
+    width:100% !important;
+    max-width:none !important;
+    max-height:88dvh !important;
+    padding:18px 16px 18px !important;
+  }
+
+  .top-panel-dialog h2{
+    font-size:17px !important;
+  }
+
+  .top-panel-content{
+    font-size:12px !important;
+  }
+}
+
+/* Smartphones étroits */
+@media (max-width:390px){
+  .brand{font-size:27px !important}
+  .header-links{gap:4px 12px !important}
+  .left{grid-template-columns:.9fr 1fr 1.45fr !important}
+  .ab-memory{grid-template-columns:auto 28px 40px 28px 40px !important}
+  .ab-btn{width:28px !important;min-width:28px !important}
+  .ab-store{width:40px !important;min-width:40px !important}
+  .stage{height:430px !important;min-height:430px !important;max-height:430px !important}
+  .stage-title div:first-child{font-size:17px !important;max-width:74% !important}
+}
+</style>
+
 </head>
 <body>
 <div class="viewport-shell">

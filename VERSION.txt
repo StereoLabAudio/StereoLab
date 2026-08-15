@@ -1,6 +1,14 @@
-StereoLab v4.1.6 iPad Finition PWA
-Base exacte : StereoLab v4.1.5 validée.
-Finition portrait : réaffichage compact de la fonction Réinitialiser A/B existante.
-Graphique portrait : inchangé.
-Paysage validé : inchangé.
+StereoLab v4.2.0 Smartphone PWA
+Base exacte : StereoLab v4.1.6 iPad Finition PWA.
+
+Smartphone <= 599 px :
+- navigation secondaire compacte et horizontale ;
+- Mémoire A/B contenue sans débordement ;
+- Type de couple et Directivité l'un sous l'autre ;
+- graphique plein écran compacté et cartouche déplacé ;
+- commandes Angle puis Espacement verticales et tactiles ;
+- résultats et conseils en dessous avec défilement naturel ;
+- fenêtres Explication / À propos / Réglages adaptées.
+
+Mac et iPad : inchangés.
 Moteur acoustique : inchangé.
