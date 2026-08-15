@@ -2599,6 +2599,68 @@ body.hide-graphic-info #svgAngleBadge{
 }
 </style>
 
+
+<style>
+/* StereoLab v4.2.3 — corrections smartphone avec les vrais sélecteurs */
+@media (max-width:599px){
+
+  /* Le groupe référence + variante quitte le positionnement absolu. */
+  .reference-actions{
+    position:static !important;
+    inset:auto !important;
+    transform:none !important;
+    width:100% !important;
+    max-width:none !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:6px !important;
+    margin:4px 0 8px !important;
+    pointer-events:auto !important;
+  }
+
+  .reference-badge{
+    position:static !important;
+    width:auto !important;
+    max-width:88% !important;
+    margin:0 auto !important;
+    padding:5px 10px !important;
+    font-size:12px !important;
+    line-height:1.2 !important;
+    white-space:normal !important;
+    text-align:center !important;
+  }
+
+  .variant-button{
+    position:static !important;
+    width:auto !important;
+    max-width:88% !important;
+    min-height:0 !important;
+    margin:0 auto !important;
+    padding:7px 12px !important;
+    font-size:14px !important;
+    line-height:1.15 !important;
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    white-space:normal !important;
+  }
+
+  /* Vrai titre de l'angle utile dans la scène. */
+  .stage-title div:first-child{
+    font-size:clamp(18px,5vw,22px) !important;
+    line-height:1.08 !important;
+    letter-spacing:0 !important;
+    max-width:92% !important;
+    margin:0 auto !important;
+  }
+
+  .stage-title .big{
+    margin-top:2px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="viewport-shell">
