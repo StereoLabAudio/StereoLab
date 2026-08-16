@@ -1,8 +1,10 @@
-StereoLab v4.2.5 Smartphone PWA
-Base : v4.2.4 Smartphone.
-Réorganisation smartphone :
-- le bloc « référence verrouillée » + « Créer une variante » quitte la zone graphique ;
-- il est placé juste avant la fenêtre graphique, dans le flux normal de la page ;
-- la logique et les événements du bouton sont conservés car le même nœud DOM est déplacé, pas recréé ;
-- la fenêtre graphique retrouve un haut épuré.
-Mac/iPad et moteur acoustique inchangés.
+StereoLab v4.2.6 Smartphone PWA
+Base : v4.2.5 Smartphone validée visuellement.
+
+Corrections smartphone :
+- point d'information « Validité du calcul » : panneau repositionné au centre de l'écran et cible tactile agrandie ;
+- mode paysage téléphone neutralisé : message demandant de revenir en portrait ;
+- manifeste PWA : orientation portrait-primary.
+
+Mac/iPad : inchangés.
+Moteur acoustique : inchangé.

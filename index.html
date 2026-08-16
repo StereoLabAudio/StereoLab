@@ -2677,8 +2677,112 @@ body.hide-graphic-info #svgAngleBadge{
 }
 </style>
 
+
+<style>
+/* StereoLab v4.2.6 — smartphone uniquement */
+
+/* Écran de protection paysage téléphone */
+.phone-portrait-only{display:none}
+
+body.phone-landscape-blocked{
+  overflow:hidden !important;
+}
+body.phone-landscape-blocked #stereolabApp{
+  visibility:hidden !important;
+  pointer-events:none !important;
+}
+body.phone-landscape-blocked .phone-portrait-only{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:#06111b;
+  color:#eef5fb;
+}
+.phone-portrait-card{
+  width:min(360px,88vw);
+  padding:28px 22px;
+  border:1px solid #405564;
+  border-radius:16px;
+  background:#0b1824;
+  text-align:center;
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
+}
+.phone-portrait-icon{
+  font-size:42px;
+  line-height:1;
+  margin-bottom:12px;
+  color:var(--blue);
+}
+.phone-portrait-card strong{
+  display:block;
+  font-size:20px;
+  margin-bottom:8px;
+}
+.phone-portrait-card span{
+  display:block;
+  font-size:15px;
+  line-height:1.4;
+  color:#c9d5de;
+}
+
+@media (max-width:599px){
+  /* Le bouton d'information devient une vraie cible tactile. */
+  #validityInfoButton{
+    width:30px !important;
+    height:30px !important;
+    min-width:30px !important;
+    line-height:28px !important;
+    font-size:14px !important;
+    float:none !important;
+    flex:0 0 30px !important;
+  }
+
+  /* Le popover existant devient un panneau centré sur smartphone.
+     Son JS d'origine reste inchangé. */
+  #validityPopover{
+    position:fixed !important;
+    left:50% !important;
+    right:auto !important;
+    top:50% !important;
+    bottom:auto !important;
+    width:calc(100vw - 32px) !important;
+    max-width:420px !important;
+    max-height:72vh !important;
+    overflow:auto !important;
+    transform:translate(-50%,-50%) !important;
+    z-index:9998 !important;
+    box-sizing:border-box !important;
+    box-shadow:0 18px 55px rgba(0,0,0,.55) !important;
+  }
+  #validityPopover .validity-popover-head{
+    position:sticky;
+    top:0;
+    z-index:2;
+    background:#0b1824;
+  }
+  #validityInfoClose{
+    width:36px !important;
+    height:36px !important;
+    min-width:36px !important;
+  }
+}
+</style>
+
 </head>
 <body>
+
+<div id="phonePortraitOnly" class="phone-portrait-only" aria-hidden="true">
+  <div class="phone-portrait-card">
+    <div class="phone-portrait-icon">↻</div>
+    <strong>MODE PORTRAIT</strong>
+    <span>Tournez votre smartphone pour utiliser StereoLab.</span>
+  </div>
+</div>
+
 <div class="viewport-shell">
 <div class="app" id="stereolabApp">
   <header class="header">
@@ -6935,6 +7039,27 @@ window.addEventListener('load', function(){
   window.addEventListener('DOMContentLoaded',syncSmartphoneReferencePlacement);
   window.addEventListener('resize',syncSmartphoneReferencePlacement);
   window.addEventListener('orientationchange',()=>setTimeout(syncSmartphoneReferencePlacement,80));
+})();
+</script>
+
+
+<script>
+(function(){
+  function syncPhoneOrientationGuard(){
+    const shortSide=Math.min(window.innerWidth,window.innerHeight);
+    const isPhone=shortSide<=599;
+    const isLandscape=window.innerWidth>window.innerHeight;
+    const blocked=isPhone && isLandscape;
+
+    document.body.classList.toggle('phone-landscape-blocked',blocked);
+
+    const overlay=document.getElementById('phonePortraitOnly');
+    if(overlay) overlay.setAttribute('aria-hidden',blocked ? 'false' : 'true');
+  }
+
+  window.addEventListener('DOMContentLoaded',syncPhoneOrientationGuard);
+  window.addEventListener('resize',syncPhoneOrientationGuard);
+  window.addEventListener('orientationchange',()=>setTimeout(syncPhoneOrientationGuard,80));
 })();
 </script>
 
