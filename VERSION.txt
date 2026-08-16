@@ -1,10 +1,12 @@
-StereoLab v4.2.6 Smartphone PWA
-Base : v4.2.5 Smartphone validée visuellement.
+StereoLab v4.2.8 Smartphone PWA
+Base : v4.2.7 Smartphone.
 
-Corrections smartphone :
-- point d'information « Validité du calcul » : panneau repositionné au centre de l'écran et cible tactile agrandie ;
-- mode paysage téléphone neutralisé : message demandant de revenir en portrait ;
-- manifeste PWA : orientation portrait-primary.
+Mode terrain smartphone :
+- suppression complète de l'écran « Tournez votre smartphone » ;
+- StereoLab reste toujours visible, même si iOS bascule momentanément l'orientation ;
+- tentative silencieuse de verrouillage portrait-primary lorsque l'application est lancée en PWA ;
+- nouvelle tentative au lancement, au retour dans l'application, après changement d'orientation et après premier geste utilisateur ;
+- en cas de refus/non-support iOS, aucun message ni masquage n'interrompt l'utilisation.
 
-Mac/iPad : inchangés.
-Moteur acoustique : inchangé.
+Mémoire A/B de v4.2.7 conservée.
+Mac/iPad et moteur acoustique : inchangés.

@@ -2772,6 +2772,102 @@ body.phone-landscape-blocked .phone-portrait-only{
 }
 </style>
 
+
+<style>
+/* StereoLab v4.2.7 — correction Mémoire A/B sur smartphone uniquement */
+@media (max-width:599px){
+
+  /* Le bloc mémoire doit toujours contenir A + MEM A + B + MEM B. */
+  .ab-memory{
+    display:grid !important;
+    grid-template-columns:auto 44px minmax(52px,1fr) 44px minmax(52px,1fr) !important;
+    grid-template-rows:auto auto !important;
+    align-items:center !important;
+    gap:6px !important;
+    padding:8px !important;
+    min-width:0 !important;
+  }
+
+  .ab-memory-title{
+    grid-column:1 !important;
+    grid-row:1 !important;
+    margin:0 !important;
+    font-size:10px !important;
+    white-space:nowrap !important;
+  }
+
+  .ab-slot{
+    display:contents !important;
+  }
+
+  .ab-btn{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    width:44px !important;
+    min-width:44px !important;
+    height:44px !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  .ab-store{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    min-width:52px !important;
+    height:44px !important;
+    padding:0 5px !important;
+    align-items:center !important;
+    justify-content:center !important;
+    font-size:9px !important;
+    white-space:normal !important;
+    line-height:1.05 !important;
+  }
+
+  /* Placement explicite des 4 commandes pour empêcher B/MEM B de sortir du bloc. */
+  .ab-slot:nth-of-type(1) .ab-btn{grid-column:2 !important;grid-row:1 !important;}
+  .ab-slot:nth-of-type(1) .ab-store{grid-column:3 !important;grid-row:1 !important;}
+  .ab-slot:nth-of-type(2) .ab-btn{grid-column:4 !important;grid-row:1 !important;}
+  .ab-slot:nth-of-type(2) .ab-store{grid-column:5 !important;grid-row:1 !important;}
+
+  .ab-reset{
+    grid-column:1 / -1 !important;
+    grid-row:2 !important;
+    width:100% !important;
+    height:32px !important;
+    margin-top:2px !important;
+  }
+}
+</style>
+
+
+<style>
+/* StereoLab v4.2.8 — smartphone terrain
+   Aucun écran d'interruption lors d'un changement d'orientation. */
+.phone-portrait-only{
+  display:none !important;
+}
+body.phone-landscape-blocked{
+  overflow:auto !important;
+}
+body.phone-landscape-blocked #stereolabApp{
+  visibility:visible !important;
+  pointer-events:auto !important;
+}
+body.phone-landscape-blocked .phone-portrait-only{
+  display:none !important;
+}
+
+/* Si iOS bascule malgré le verrouillage, on garde StereoLab visible.
+   Le verrouillage portrait reste la préférence, mais aucune coupure d'affichage. */
+@media (orientation:landscape) and (max-height:599px){
+  .phone-portrait-only{
+    display:none !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -7060,6 +7156,76 @@ window.addEventListener('load', function(){
   window.addEventListener('DOMContentLoaded',syncPhoneOrientationGuard);
   window.addEventListener('resize',syncPhoneOrientationGuard);
   window.addEventListener('orientationchange',()=>setTimeout(syncPhoneOrientationGuard,80));
+})();
+</script>
+
+
+<script>
+(function(){
+  async function tryPortraitLock(){
+    try{
+      document.body.classList.remove('phone-landscape-blocked');
+
+      const shortSide=Math.min(window.innerWidth,window.innerHeight);
+      const isPhone=shortSide<=599;
+      if(!isPhone) return;
+
+      const standalone =
+        window.matchMedia('(display-mode: standalone)').matches ||
+        window.navigator.standalone === true;
+
+      if(!standalone) return;
+
+      if(screen.orientation && typeof screen.orientation.lock === 'function'){
+        await screen.orientation.lock('portrait-primary');
+      }
+    }catch(e){
+      /* Échec volontairement silencieux :
+         StereoLab reste affiché et utilisable. */
+    }finally{
+      document.body.classList.remove('phone-landscape-blocked');
+      const overlay=document.getElementById('phonePortraitOnly');
+      if(overlay){
+        overlay.style.display='none';
+        overlay.setAttribute('aria-hidden','true');
+      }
+    }
+  }
+
+  function keepInterfaceVisible(){
+    document.body.classList.remove('phone-landscape-blocked');
+    const overlay=document.getElementById('phonePortraitOnly');
+    if(overlay){
+      overlay.style.display='none';
+      overlay.setAttribute('aria-hidden','true');
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded',()=>{
+    keepInterfaceVisible();
+    tryPortraitLock();
+  });
+
+  window.addEventListener('pageshow',()=>{
+    keepInterfaceVisible();
+    tryPortraitLock();
+  });
+
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden){
+      keepInterfaceVisible();
+      tryPortraitLock();
+    }
+  });
+
+  window.addEventListener('orientationchange',()=>{
+    keepInterfaceVisible();
+    setTimeout(tryPortraitLock,120);
+  });
+
+  /* Certains navigateurs n'autorisent le verrouillage qu'après un geste utilisateur. */
+  document.addEventListener('pointerdown',tryPortraitLock,{once:true,passive:true});
+  document.addEventListener('touchstart',tryPortraitLock,{once:true,passive:true});
 })();
 </script>
 
