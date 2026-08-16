@@ -1,12 +1,12 @@
-StereoLab v4.2.8 Smartphone PWA
-Base : v4.2.7 Smartphone.
+StereoLab v4.2.9 Smartphone PWA
+Base : v4.2.8 Smartphone.
 
-Mode terrain smartphone :
-- suppression complète de l'écran « Tournez votre smartphone » ;
-- StereoLab reste toujours visible, même si iOS bascule momentanément l'orientation ;
-- tentative silencieuse de verrouillage portrait-primary lorsque l'application est lancée en PWA ;
-- nouvelle tentative au lancement, au retour dans l'application, après changement d'orientation et après premier geste utilisateur ;
-- en cas de refus/non-support iOS, aucun message ni masquage n'interrompt l'utilisation.
+Correction Mémoire A/B smartphone :
+- suppression du placement dépendant de l'ordre des .ab-slot ;
+- placement direct par ID :
+  A -> MEM A -> B -> MEM B ;
+- A et B ne peuvent plus être inversés par la mise en page ;
+- Réinitialiser A/B reste sur une ligne dédiée.
 
-Mémoire A/B de v4.2.7 conservée.
-Mac/iPad et moteur acoustique : inchangés.
+Comportement terrain/orientation de v4.2.8 conservé.
+Mac/iPad et moteur acoustique inchangés.
