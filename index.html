@@ -2606,6 +2606,77 @@ body.hide-graphic-info #svgAngleBadge{
 }
 </style>
 
+
+<style>
+.smartphone-reference-anchor{display:none}
+
+@media (max-width:599px){
+  .smartphone-reference-anchor{
+    display:block !important;
+    width:100%;
+    margin:8px 0 10px;
+  }
+
+  .smartphone-reference-anchor .reference-actions{
+    position:static !important;
+    width:100% !important;
+    max-width:none !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:6px !important;
+    transform:none !important;
+  }
+
+  .smartphone-reference-anchor .reference-badge{
+    position:static !important;
+    display:block !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:6px 10px !important;
+    box-sizing:border-box !important;
+    border-radius:8px !important;
+    font-size:11px !important;
+    line-height:1.2 !important;
+    text-align:center !important;
+    white-space:normal !important;
+  }
+
+  .smartphone-reference-anchor .variant-button{
+    position:static !important;
+    width:100% !important;
+    max-width:none !important;
+    min-height:0 !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:8px 12px !important;
+    box-sizing:border-box !important;
+    border-radius:8px !important;
+    font-size:13px !important;
+    line-height:1.15 !important;
+    justify-content:center !important;
+    pointer-events:auto !important;
+  }
+
+  .stage > .reference-actions{
+    display:none !important;
+  }
+
+  .stage-title{
+    top:12px !important;
+  }
+  .stage-title div:first-child{
+    font-size:20px !important;
+    line-height:1.08 !important;
+  }
+  .stage-title .big{
+    font-size:44px !important;
+    line-height:1 !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="viewport-shell">
@@ -2687,7 +2758,8 @@ body.hide-graphic-info #svgAngleBadge{
         </div>
       </section>
 
-      <section class="panel stage" id="angleZoneCard">
+      <div id="smartphoneReferenceAnchor" class="smartphone-reference-anchor" hidden></div>
+<section class="panel stage" id="angleZoneCard">
         <div class="stage-title">
           <div>ANGLE UTILE DE PRISE DE SON</div>
           <div class="big" id="usefulAngleValue">—</div>
@@ -6833,6 +6905,36 @@ window.addEventListener('load', function(){
       });
     });
   }
+})();
+</script>
+
+
+<script>
+(function(){
+  function syncSmartphoneReferencePlacement(){
+    const actions=document.querySelector('.reference-actions');
+    const anchor=document.getElementById('smartphoneReferenceAnchor');
+    const stage=document.querySelector('.stage');
+    if(!actions || !anchor || !stage) return;
+
+    const smartphone=window.matchMedia('(max-width: 599px)').matches;
+
+    if(smartphone){
+      if(actions.parentElement!==anchor){
+        anchor.appendChild(actions);
+      }
+      anchor.hidden=false;
+    }else{
+      if(actions.parentElement!==stage){
+        stage.appendChild(actions);
+      }
+      anchor.hidden=true;
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded',syncSmartphoneReferencePlacement);
+  window.addEventListener('resize',syncSmartphoneReferencePlacement);
+  window.addEventListener('orientationchange',()=>setTimeout(syncSmartphoneReferencePlacement,80));
 })();
 </script>
 

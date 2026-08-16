@@ -1,6 +1,8 @@
-StereoLab v4.2.4 Smartphone PWA
-Base : correction préparée après la v4.2.3 déjà existante.
-Contenu fonctionnel : identique à la correction précédemment préparée.
-Objectif : repositionnement sûr du cartouche de référence et du bouton
-« Créer une variante » sur smartphone, sans casser son accès.
+StereoLab v4.2.5 Smartphone PWA
+Base : v4.2.4 Smartphone.
+Réorganisation smartphone :
+- le bloc « référence verrouillée » + « Créer une variante » quitte la zone graphique ;
+- il est placé juste avant la fenêtre graphique, dans le flux normal de la page ;
+- la logique et les événements du bouton sont conservés car le même nœud DOM est déplacé, pas recréé ;
+- la fenêtre graphique retrouve un haut épuré.
 Mac/iPad et moteur acoustique inchangés.
