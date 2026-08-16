@@ -1,12 +1,12 @@
-StereoLab v4.2.9 Smartphone PWA
-Base : v4.2.8 Smartphone.
+StereoLab v4.2.10 Smartphone PWA
+Base : v4.2.9 Smartphone.
 
 Correction Mémoire A/B smartphone :
-- suppression du placement dépendant de l'ordre des .ab-slot ;
-- placement direct par ID :
-  A -> MEM A -> B -> MEM B ;
-- A et B ne peuvent plus être inversés par la mise en page ;
-- Réinitialiser A/B reste sur une ligne dédiée.
+- abandon de l'affichage sur une seule ligne ;
+- ligne 1 : A + MEM A ;
+- ligne 2 : B + MEM B ;
+- ligne 3 : Réinitialiser A/B ;
+- disposition robuste sur petits écrans.
 
-Comportement terrain/orientation de v4.2.8 conservé.
-Mac/iPad et moteur acoustique inchangés.
+Le reste de la v4.2.9 est inchangé.
+Mac/iPad et moteur acoustique : inchangés.

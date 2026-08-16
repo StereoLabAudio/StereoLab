@@ -2803,19 +2803,23 @@ body.phone-landscape-blocked .phone-portrait-only{
 </style>
 
 
+
+
+
 <style>
-/* StereoLab v4.2.9 — Mémoire A/B smartphone reconstruite explicitement.
-   Aucun placement dépendant de l'ordre des .ab-slot. */
+/* StereoLab v4.2.10 — Mémoire A/B smartphone en 2 lignes.
+   Solution robuste pour petits écrans. */
 @media (max-width:599px){
 
   .ab-memory{
     display:grid !important;
-    grid-template-columns:44px minmax(62px,1fr) 44px minmax(62px,1fr) !important;
-    grid-template-rows:auto 44px 34px !important;
-    gap:6px !important;
+    grid-template-columns:44px minmax(0,1fr) !important;
+    grid-template-rows:auto 44px 44px 34px !important;
+    gap:7px !important;
     align-items:center !important;
-    padding:8px !important;
+    padding:9px !important;
     min-width:0 !important;
+    width:100% !important;
     box-sizing:border-box !important;
   }
 
@@ -2828,12 +2832,11 @@ body.phone-landscape-blocked .phone-portrait-only{
     white-space:nowrap !important;
   }
 
-  /* Les wrappers ne participent plus au layout. */
   .ab-slot{
     display:contents !important;
   }
 
-  /* Placement direct par ID : impossible d'inverser A et B. */
+  /* Ligne A */
   #abRecallA{
     grid-column:1 !important;
     grid-row:2 !important;
@@ -2842,52 +2845,54 @@ body.phone-landscape-blocked .phone-portrait-only{
     grid-column:2 !important;
     grid-row:2 !important;
   }
+
+  /* Ligne B */
   #abRecallB{
-    grid-column:3 !important;
-    grid-row:2 !important;
+    grid-column:1 !important;
+    grid-row:3 !important;
   }
   #abStoreB{
-    grid-column:4 !important;
-    grid-row:2 !important;
+    grid-column:2 !important;
+    grid-row:3 !important;
   }
 
   #abRecallA,
   #abRecallB{
     display:flex !important;
     visibility:visible !important;
-    opacity:1 !important;
     width:44px !important;
     min-width:44px !important;
     height:44px !important;
+    margin:0 !important;
     align-items:center !important;
     justify-content:center !important;
-    margin:0 !important;
+    box-sizing:border-box !important;
   }
 
   #abStoreA,
   #abStoreB{
     display:flex !important;
     visibility:visible !important;
-    opacity:1 !important;
     width:100% !important;
     min-width:0 !important;
     height:44px !important;
-    padding:0 6px !important;
+    margin:0 !important;
+    padding:0 8px !important;
     align-items:center !important;
     justify-content:center !important;
-    margin:0 !important;
-    font-size:9px !important;
-    line-height:1.05 !important;
-    white-space:normal !important;
     box-sizing:border-box !important;
+    font-size:10px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
   }
 
   #abReset{
     grid-column:1 / -1 !important;
-    grid-row:3 !important;
+    grid-row:4 !important;
     width:100% !important;
     height:34px !important;
     margin:0 !important;
+    box-sizing:border-box !important;
   }
 }
 </style>
