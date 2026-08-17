@@ -3072,6 +3072,20 @@ body.phone-landscape-blocked .phone-portrait-only{
     line-height:1 !important;
   }
   .control-note{ display:none !important; }
+
+  /* v4.3.1 — Infos couple : popover ancré juste au-dessus de son bouton. */
+  .info-couple-panel{
+    position:fixed !important;
+    left:7px !important;
+    right:7px !important;
+    top:auto !important;
+    width:auto !important;
+    max-height:min(56vh, 430px) !important;
+    overflow:auto !important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    z-index:100 !important;
+  }
 }
 
 /* Petits Android / iPhone SE : conserve les commandes, réduit surtout le dessin. */
@@ -6594,9 +6608,27 @@ const infoCouplePanel=document.getElementById('infoCouplePanel');
 const infoCoupleClose=document.getElementById('infoCoupleClose');
 
 if(infoCoupleButton && infoCouplePanel){
+  const positionInfoCouplePanel=()=>{
+    if(window.matchMedia('(max-width:599px)').matches){
+      const r=infoCoupleButton.getBoundingClientRect();
+      const gap=8;
+      infoCouplePanel.style.bottom=Math.max(gap, window.innerHeight-r.top+gap)+'px';
+    }else{
+      infoCouplePanel.style.bottom='';
+    }
+  };
   infoCoupleButton.addEventListener('click',()=>{
-    updateInfoCouplePanel();
-    infoCouplePanel.hidden=!infoCouplePanel.hidden;
+    const willOpen=infoCouplePanel.hidden;
+    if(willOpen){
+      updateInfoCouplePanel();
+      positionInfoCouplePanel();
+      infoCouplePanel.hidden=false;
+    }else{
+      infoCouplePanel.hidden=true;
+    }
+  });
+  window.addEventListener('resize',()=>{
+    if(!infoCouplePanel.hidden) positionInfoCouplePanel();
   });
 }
 if(infoCoupleClose && infoCouplePanel){
