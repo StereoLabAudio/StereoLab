@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
+<!-- StereoLab v4.3.3 Smartphone First — Infos couple inline -->
 <!-- StereoLab v4.3.2 Smartphone First — Infos couple viewport-safe -->
 
 <meta charset="utf-8" />
@@ -3075,35 +3076,33 @@ body.phone-landscape-blocked .phone-portrait-only{
   }
   .control-note{ display:none !important; }
 
-  /* v4.3.2 — Infos couple : ancré au-dessus du bouton,
-     hauteur limitée à l'espace réellement visible. */
+  /* v4.3.3 — Infos couple intégré au flux normal de la page. */
   .info-couple-panel{
-    position:fixed !important;
-    left:7px !important;
-    right:7px !important;
+    position:static !important;
+    left:auto !important;
+    right:auto !important;
     top:auto !important;
-    width:auto !important;
-    max-height:var(--info-couple-max-height, 52vh) !important;
-    display:flex;
-    flex-direction:column;
-    overflow:hidden !important;
-    overscroll-behavior:contain;
-    z-index:100 !important;
+    bottom:auto !important;
+    width:100% !important;
+    max-width:none !important;
+    max-height:none !important;
+    margin:10px 0 !important;
+    display:block !important;
+    overflow:visible !important;
+    overscroll-behavior:auto !important;
+    transform:none !important;
+    z-index:auto !important;
+    box-sizing:border-box !important;
   }
   .info-couple-panel[hidden]{ display:none !important; }
 
   .info-couple-head{
-    flex:0 0 auto;
-    background:linear-gradient(180deg,rgba(15,31,44,.995),rgba(12,27,39,.995));
-    z-index:2;
+    position:static !important;
   }
 
   .info-couple-content{
-    flex:1 1 auto;
-    min-height:0;
-    overflow-y:auto !important;
-    overscroll-behavior:contain;
-    -webkit-overflow-scrolling:touch;
+    overflow:visible !important;
+    max-height:none !important;
   }
 }
 
@@ -3141,7 +3140,28 @@ body.phone-landscape-blocked .phone-portrait-only{
   </header>
 
   <main class="workspace">
-    <aside class="left panel">
+    <section class="info-couple-panel" id="infoCouplePanel" hidden>
+    <div class="info-couple-head">
+      <h2>INFOS COUPLE</h2>
+      <button type="button" id="infoCoupleClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="info-couple-content">
+      <div class="info-couple-name" id="infoCoupleName">Couple personnalisé</div>
+      <p id="infoCoupleSummary">Configuration stéréophonique personnalisée.</p>
+      <div class="info-couple-grid">
+        <div><span>Principe</span><strong id="infoCouplePrinciple">—</strong></div>
+        <div><span>Directivité</span><strong id="infoCoupleDirectivity">—</strong></div>
+        <div><span>Angle physique</span><strong id="infoCoupleAngle">—</strong></div>
+        <div><span>Espacement</span><strong id="infoCoupleSpacing">—</strong></div>
+      </div>
+      <p class="info-couple-note" id="infoCoupleNote"></p>
+      <div class="info-couple-history" id="infoCoupleHistoryBlock">
+        <span>HISTOIRE &amp; USAGES</span>
+        <p id="infoCoupleHistory">—</p>
+      </div>
+    </div>
+  </section>
+<aside class="left panel">
       <nav class="side-nav">
 <div class="nav-item" id="infoCoupleButton"><div><span class="nav-icon"></span>INFOS<br>COUPLE</div></div>
 <div class="nav-item" id="comparisonButton"><div><span class="nav-icon">⚖</span>COMPARAISON</div></div>
@@ -3527,27 +3547,7 @@ body.phone-landscape-blocked .phone-portrait-only{
       </div>
 </aside>
   
-  <section class="info-couple-panel" id="infoCouplePanel" hidden>
-    <div class="info-couple-head">
-      <h2>INFOS COUPLE</h2>
-      <button type="button" id="infoCoupleClose" aria-label="Fermer">×</button>
-    </div>
-    <div class="info-couple-content">
-      <div class="info-couple-name" id="infoCoupleName">Couple personnalisé</div>
-      <p id="infoCoupleSummary">Configuration stéréophonique personnalisée.</p>
-      <div class="info-couple-grid">
-        <div><span>Principe</span><strong id="infoCouplePrinciple">—</strong></div>
-        <div><span>Directivité</span><strong id="infoCoupleDirectivity">—</strong></div>
-        <div><span>Angle physique</span><strong id="infoCoupleAngle">—</strong></div>
-        <div><span>Espacement</span><strong id="infoCoupleSpacing">—</strong></div>
-      </div>
-      <p class="info-couple-note" id="infoCoupleNote"></p>
-      <div class="info-couple-history" id="infoCoupleHistoryBlock">
-        <span>HISTOIRE &amp; USAGES</span>
-        <p id="infoCoupleHistory">—</p>
-      </div>
-    </div>
-  </section>
+  
 </main>
 </div>
 </div>
@@ -6627,48 +6627,15 @@ const infoCouplePanel=document.getElementById('infoCouplePanel');
 const infoCoupleClose=document.getElementById('infoCoupleClose');
 
 if(infoCoupleButton && infoCouplePanel){
-  const positionInfoCouplePanel=()=>{
-    if(window.matchMedia('(max-width:599px)').matches){
-      const r=infoCoupleButton.getBoundingClientRect();
-      const gap=8;
-      const topSafety=10;
-
-      /* Le bas du panneau reste juste au-dessus du bouton. */
-      infoCouplePanel.style.bottom=Math.max(gap, window.innerHeight-r.top+gap)+'px';
-
-      /* La hauteur ne peut jamais dépasser l'espace entre le haut
-         visible de l'écran et le bouton Infos couple. */
-      const availableHeight=Math.max(150, r.top-gap-topSafety);
-      infoCouplePanel.style.setProperty(
-        '--info-couple-max-height',
-        Math.min(430, availableHeight)+'px'
-      );
-    }else{
-      infoCouplePanel.style.bottom='';
-      infoCouplePanel.style.removeProperty('--info-couple-max-height');
-    }
-  };
-
   infoCoupleButton.addEventListener('click',()=>{
     const willOpen=infoCouplePanel.hidden;
     if(willOpen){
       updateInfoCouplePanel();
       infoCouplePanel.hidden=false;
-      positionInfoCouplePanel();
-      requestAnimationFrame(positionInfoCouplePanel);
     }else{
       infoCouplePanel.hidden=true;
     }
   });
-
-  window.addEventListener('resize',()=>{
-    if(!infoCouplePanel.hidden) positionInfoCouplePanel();
-  });
-  if(window.visualViewport){
-    window.visualViewport.addEventListener('resize',()=>{
-      if(!infoCouplePanel.hidden) positionInfoCouplePanel();
-    });
-  }
 }
 if(infoCoupleClose && infoCouplePanel){
   infoCoupleClose.addEventListener('click',()=>{infoCouplePanel.hidden=true;});
