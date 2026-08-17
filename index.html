@@ -3076,7 +3076,7 @@ body.phone-landscape-blocked .phone-portrait-only{
   }
   .control-note{ display:none !important; }
 
-  /* v4.3.3 — Infos couple intégré au flux normal de la page. */
+  /* v4.3.4 — Infos couple dans le flux, juste sous les curseurs. */
   .info-couple-panel{
     position:static !important;
     left:auto !important;
@@ -3140,27 +3140,6 @@ body.phone-landscape-blocked .phone-portrait-only{
   </header>
 
   <main class="workspace">
-    <section class="info-couple-panel" id="infoCouplePanel" hidden>
-    <div class="info-couple-head">
-      <h2>INFOS COUPLE</h2>
-      <button type="button" id="infoCoupleClose" aria-label="Fermer">×</button>
-    </div>
-    <div class="info-couple-content">
-      <div class="info-couple-name" id="infoCoupleName">Couple personnalisé</div>
-      <p id="infoCoupleSummary">Configuration stéréophonique personnalisée.</p>
-      <div class="info-couple-grid">
-        <div><span>Principe</span><strong id="infoCouplePrinciple">—</strong></div>
-        <div><span>Directivité</span><strong id="infoCoupleDirectivity">—</strong></div>
-        <div><span>Angle physique</span><strong id="infoCoupleAngle">—</strong></div>
-        <div><span>Espacement</span><strong id="infoCoupleSpacing">—</strong></div>
-      </div>
-      <p class="info-couple-note" id="infoCoupleNote"></p>
-      <div class="info-couple-history" id="infoCoupleHistoryBlock">
-        <span>HISTOIRE &amp; USAGES</span>
-        <p id="infoCoupleHistory">—</p>
-      </div>
-    </div>
-  </section>
 <aside class="left panel">
       <nav class="side-nav">
 <div class="nav-item" id="infoCoupleButton"><div><span class="nav-icon"></span>INFOS<br>COUPLE</div></div>
@@ -3486,6 +3465,29 @@ body.phone-landscape-blocked .phone-portrait-only{
           <div class="scale" id="spacingScale"><span>0</span><span>20</span><span>40</span><span>60</span><span>80</span><span>100</span><span>120 cm</span></div>
           <div class="control-note blue" id="spacingControlNote">Plus l’espacement augmente, plus l’angle utile diminue.</div>
         </div>
+      </section>
+
+      <!-- v4.3.4 — INFOS COUPLE placé directement sous les curseurs sur smartphone. -->
+      <section class="info-couple-panel" id="infoCouplePanel" hidden>
+      <div class="info-couple-head">
+      <h2>INFOS COUPLE</h2>
+      <button type="button" id="infoCoupleClose" aria-label="Fermer">×</button>
+      </div>
+      <div class="info-couple-content">
+      <div class="info-couple-name" id="infoCoupleName">Couple personnalisé</div>
+      <p id="infoCoupleSummary">Configuration stéréophonique personnalisée.</p>
+      <div class="info-couple-grid">
+      <div><span>Principe</span><strong id="infoCouplePrinciple">—</strong></div>
+      <div><span>Directivité</span><strong id="infoCoupleDirectivity">—</strong></div>
+      <div><span>Angle physique</span><strong id="infoCoupleAngle">—</strong></div>
+      <div><span>Espacement</span><strong id="infoCoupleSpacing">—</strong></div>
+      </div>
+      <p class="info-couple-note" id="infoCoupleNote"></p>
+      <div class="info-couple-history" id="infoCoupleHistoryBlock">
+      <span>HISTOIRE &amp; USAGES</span>
+      <p id="infoCoupleHistory">—</p>
+      </div>
+      </div>
       </section>
     </section>
 
