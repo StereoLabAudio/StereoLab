@@ -2806,15 +2806,16 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 
-<style>
-/* StereoLab v4.2.10 — Mémoire A/B smartphone en 2 lignes.
-   Solution robuste pour petits écrans. */
-@media (max-width:599px){
 
+
+
+<style>
+/* StereoLab v4.2.11 — Mémoire A/B smartphone équilibrée. */
+@media (max-width:599px){
   .ab-memory{
     display:grid !important;
-    grid-template-columns:44px minmax(0,1fr) !important;
-    grid-template-rows:auto 44px 44px 34px !important;
+    grid-template-columns:minmax(0,45fr) minmax(0,55fr) !important;
+    grid-template-rows:auto 46px 46px 34px !important;
     gap:7px !important;
     align-items:center !important;
     padding:9px !important;
@@ -2832,55 +2833,37 @@ body.phone-landscape-blocked .phone-portrait-only{
     white-space:nowrap !important;
   }
 
-  .ab-slot{
-    display:contents !important;
-  }
+  .ab-slot{ display:contents !important; }
 
-  /* Ligne A */
-  #abRecallA{
-    grid-column:1 !important;
-    grid-row:2 !important;
-  }
-  #abStoreA{
-    grid-column:2 !important;
-    grid-row:2 !important;
-  }
-
-  /* Ligne B */
-  #abRecallB{
-    grid-column:1 !important;
-    grid-row:3 !important;
-  }
-  #abStoreB{
-    grid-column:2 !important;
-    grid-row:3 !important;
-  }
+  #abRecallA{ grid-column:1 !important; grid-row:2 !important; }
+  #abStoreA{ grid-column:2 !important; grid-row:2 !important; }
+  #abRecallB{ grid-column:1 !important; grid-row:3 !important; }
+  #abStoreB{ grid-column:2 !important; grid-row:3 !important; }
 
   #abRecallA,
-  #abRecallB{
-    display:flex !important;
-    visibility:visible !important;
-    width:44px !important;
-    min-width:44px !important;
-    height:44px !important;
-    margin:0 !important;
-    align-items:center !important;
-    justify-content:center !important;
-    box-sizing:border-box !important;
-  }
-
+  #abRecallB,
   #abStoreA,
   #abStoreB{
     display:flex !important;
     visibility:visible !important;
     width:100% !important;
     min-width:0 !important;
-    height:44px !important;
+    height:46px !important;
     margin:0 !important;
     padding:0 8px !important;
     align-items:center !important;
     justify-content:center !important;
     box-sizing:border-box !important;
+  }
+
+  #abRecallA,
+  #abRecallB{
+    font-size:17px !important;
+    font-weight:800 !important;
+  }
+
+  #abStoreA,
+  #abStoreB{
     font-size:10px !important;
     line-height:1 !important;
     white-space:nowrap !important;
