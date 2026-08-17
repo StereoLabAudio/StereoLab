@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="fr">
 <head>
+<!-- StereoLab v4.3.2 Smartphone First — Infos couple viewport-safe -->
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>StereoLab — v2.96 solveur Sengpiel corrigé</title>
@@ -3073,18 +3075,35 @@ body.phone-landscape-blocked .phone-portrait-only{
   }
   .control-note{ display:none !important; }
 
-  /* v4.3.1 — Infos couple : popover ancré juste au-dessus de son bouton. */
+  /* v4.3.2 — Infos couple : ancré au-dessus du bouton,
+     hauteur limitée à l'espace réellement visible. */
   .info-couple-panel{
     position:fixed !important;
     left:7px !important;
     right:7px !important;
     top:auto !important;
     width:auto !important;
-    max-height:min(56vh, 430px) !important;
-    overflow:auto !important;
+    max-height:var(--info-couple-max-height, 52vh) !important;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden !important;
+    overscroll-behavior:contain;
+    z-index:100 !important;
+  }
+  .info-couple-panel[hidden]{ display:none !important; }
+
+  .info-couple-head{
+    flex:0 0 auto;
+    background:linear-gradient(180deg,rgba(15,31,44,.995),rgba(12,27,39,.995));
+    z-index:2;
+  }
+
+  .info-couple-content{
+    flex:1 1 auto;
+    min-height:0;
+    overflow-y:auto !important;
     overscroll-behavior:contain;
     -webkit-overflow-scrolling:touch;
-    z-index:100 !important;
   }
 }
 
@@ -6612,24 +6631,44 @@ if(infoCoupleButton && infoCouplePanel){
     if(window.matchMedia('(max-width:599px)').matches){
       const r=infoCoupleButton.getBoundingClientRect();
       const gap=8;
+      const topSafety=10;
+
+      /* Le bas du panneau reste juste au-dessus du bouton. */
       infoCouplePanel.style.bottom=Math.max(gap, window.innerHeight-r.top+gap)+'px';
+
+      /* La hauteur ne peut jamais dépasser l'espace entre le haut
+         visible de l'écran et le bouton Infos couple. */
+      const availableHeight=Math.max(150, r.top-gap-topSafety);
+      infoCouplePanel.style.setProperty(
+        '--info-couple-max-height',
+        Math.min(430, availableHeight)+'px'
+      );
     }else{
       infoCouplePanel.style.bottom='';
+      infoCouplePanel.style.removeProperty('--info-couple-max-height');
     }
   };
+
   infoCoupleButton.addEventListener('click',()=>{
     const willOpen=infoCouplePanel.hidden;
     if(willOpen){
       updateInfoCouplePanel();
-      positionInfoCouplePanel();
       infoCouplePanel.hidden=false;
+      positionInfoCouplePanel();
+      requestAnimationFrame(positionInfoCouplePanel);
     }else{
       infoCouplePanel.hidden=true;
     }
   });
+
   window.addEventListener('resize',()=>{
     if(!infoCouplePanel.hidden) positionInfoCouplePanel();
   });
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize',()=>{
+      if(!infoCouplePanel.hidden) positionInfoCouplePanel();
+    });
+  }
 }
 if(infoCoupleClose && infoCouplePanel){
   infoCoupleClose.addEventListener('click',()=>{infoCouplePanel.hidden=true;});
