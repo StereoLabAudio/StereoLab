@@ -1,12 +1,11 @@
 {
   "name": "StereoLab — Calculateur de couples stéréophoniques",
   "short_name": "StereoLab",
-  "description": "Calculateur et outil pédagogique pour les couples stéréophoniques.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f2f3f4",
-  "theme_color": "#f2f3f4",
+  "background_color": "#111111",
+  "theme_color": "#111111",
   "orientation": "portrait",
   "icons": [
     {
@@ -21,5 +20,6 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "description": "Calculateur et outil pédagogique pour les couples stéréophoniques — version 4.4.2."
 }
