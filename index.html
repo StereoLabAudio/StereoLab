@@ -3119,7 +3119,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.12 — hiérarchie smartphone terrain */
+/* StereoLab v4.4.13 — hiérarchie smartphone terrain */
 .smartphone-ab-anchor,
 .smartphone-tools-section{display:none}
 
@@ -3160,7 +3160,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.12 — ergonomie smartphone terrain */
+/* StereoLab v4.4.13 — ergonomie smartphone terrain */
 .smartphone-quick-anchor{display:none}
 
 @media (max-width:599px){
@@ -3233,7 +3233,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.12 — lisibilité <span class="mono-label-emphasis">Compatibilité mono</span> + mémoire A/B plus compacte */
+/* StereoLab v4.4.13 — lisibilité <span class="mono-label-emphasis">Compatibilité mono</span> + mémoire A/B plus compacte */
 @media (max-width:599px){
 
   /* Compatibilité mono : même présence visuelle que Relation Temps / Intensité */
@@ -3285,7 +3285,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.12 — libellé Compatibilité mono plus lisible sur smartphone */
+/* StereoLab v4.4.13 — libellé Compatibilité mono plus lisible sur smartphone */
 @media (max-width:599px){
   .mono-label-emphasis{
     font-size:13px !important;
@@ -3297,7 +3297,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.12 — correction ciblée smartphone */
+/* StereoLab v4.4.13 — correction ciblée smartphone */
 @media (max-width:599px){
 
   /* Libellé Compatibilité mono à la même échelle que Relation Temps / Intensité */
@@ -3348,7 +3348,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.12 — sécurité orientation smartphone */
+/* StereoLab v4.4.13 — sécurité orientation smartphone */
 .phone-portrait-only{
   display:none;
 }
@@ -3410,7 +3410,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.12 — verrouillage paysage smartphone robuste.
+/* StereoLab v4.4.13 — verrouillage paysage smartphone robuste.
    La classe est posée uniquement sur téléphone par JavaScript, donc
    aucune dépendance à max-width en mode paysage. */
 body.phone-landscape-blocked{
@@ -3471,7 +3471,7 @@ body.phone-landscape-blocked .phone-portrait-card span{
 
 
 <style>
-/* StereoLab v4.4.12 — hiérarchie Compatibilité mono harmonisée */
+/* StereoLab v4.4.13 — hiérarchie Compatibilité mono harmonisée */
 .mono-label-main{
   font-weight:400 !important;
   line-height:1.2 !important;
@@ -3532,7 +3532,7 @@ body.phone-landscape-blocked .phone-portrait-card span{
 
 
 <style>
-/* StereoLab v4.4.12 — correction directe du résultat Compatibilité mono */
+/* StereoLab v4.4.13 — correction directe du résultat Compatibilité mono */
 #quickMonoCompatibility{
   font-size:16px !important;
   line-height:1.2 !important;
@@ -3554,7 +3554,7 @@ body.phone-landscape-blocked .phone-portrait-card span{
 
 
 <style>
-/* StereoLab v4.4.12 — harmonisation tablette / ordinateur */
+/* StereoLab v4.4.13 — harmonisation tablette / ordinateur */
 @media (min-width:600px){
   /* Compatibilité mono = même hiérarchie que Relation Temps / Intensité */
   .mono-label-main{
@@ -3581,7 +3581,7 @@ body.phone-landscape-blocked .phone-portrait-card span{
 
 
 <style>
-/* StereoLab v4.4.12 — correction typographique exacte tablette / ordinateur */
+/* StereoLab v4.4.13 — correction typographique exacte tablette / ordinateur */
 @media (min-width:600px){
   .mono-label-main{
     font-size:14px !important;
@@ -3600,6 +3600,38 @@ body.phone-landscape-blocked .phone-portrait-card span{
     font-size:14px !important;
     line-height:1.2 !important;
     font-weight:600 !important;
+  }
+}
+</style>
+
+
+<style>
+/* StereoLab v4.4.13 — mémoire A/B smartphone :
+   rappel A/B prioritaire, MEM A/B secondaires, même hauteur. */
+@media (max-width:599px){
+  .smartphone-ab-anchor .ab-memory{
+    grid-template-columns:auto 1.65fr 1fr 1.65fr 1fr !important;
+    gap:5px !important;
+  }
+
+  .smartphone-ab-anchor .ab-btn,
+  .smartphone-ab-anchor .ab-store{
+    height:28px !important;
+    min-height:28px !important;
+    padding:2px 5px !important;
+    margin:0 !important;
+    box-sizing:border-box !important;
+  }
+
+  /* A et B : commandes principales de rappel */
+  .smartphone-ab-anchor .ab-btn{
+    font-size:11px !important;
+    font-weight:700 !important;
+  }
+
+  /* MEM A / MEM B : mémorisation, volontairement plus étroite */
+  .smartphone-ab-anchor .ab-store{
+    font-size:9.5px !important;
   }
 }
 </style>
@@ -7677,7 +7709,7 @@ window.addEventListener('load', function(){
         <p>Les références propres à un calcul sont indiquées directement dans <strong>Validité du calcul</strong>.</p>
       </div>
 
-      <div class="about-version">StereoLab — version 4.4.12<br>Conception : Jean-pierre COHEN</div>
+      <div class="about-version">StereoLab — version 4.4.13<br>Conception : Jean-pierre COHEN</div>
     </div>
   </section>
 </div>
@@ -7985,7 +8017,7 @@ window.addEventListener('load', function(){
 
 
 <script>
-/* StereoLab v4.4.12 — ordre smartphone optimisé terrain.
+/* StereoLab v4.4.13 — ordre smartphone optimisé terrain.
    Aucun changement du moteur acoustique. */
 (function(){
   const media = window.matchMedia('(max-width: 599px)');
@@ -8050,7 +8082,7 @@ window.addEventListener('load', function(){
 
 
 <script>
-/* StereoLab v4.4.12 — ergonomie smartphone terrain.
+/* StereoLab v4.4.13 — ergonomie smartphone terrain.
    Aucun changement du moteur acoustique. */
 (function(){
   const media = window.matchMedia('(max-width: 599px)');
@@ -8160,7 +8192,7 @@ window.addEventListener('load', function(){
 
 
 <script>
-/* StereoLab v4.4.12 — garde portrait smartphone */
+/* StereoLab v4.4.13 — garde portrait smartphone */
 (function(){
   function syncPhoneOrientationGuardV446(){
     const shortSide = Math.min(window.innerWidth, window.innerHeight);
@@ -8188,7 +8220,7 @@ window.addEventListener('load', function(){
 
 
 <script>
-/* StereoLab v4.4.12 — détection smartphone paysage indépendante de la largeur CSS */
+/* StereoLab v4.4.13 — détection smartphone paysage indépendante de la largeur CSS */
 (function(){
   function syncPhoneLandscapeLockV447(){
     const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
