@@ -3158,6 +3158,137 @@ body.phone-landscape-blocked .phone-portrait-only{
 }
 </style>
 
+
+<style>
+/* StereoLab v4.4.1 LIGHT TEST — variante visuelle uniquement */
+:root{
+  --light-bg:#f2f3f4;
+  --light-surface:#ffffff;
+  --light-surface-soft:#f8f8f7;
+  --light-border:#d7d9dc;
+  --light-text:#202327;
+  --light-muted:#6b7077;
+  --light-shadow:0 1px 4px rgba(0,0,0,.08);
+}
+
+html, body{
+  background:var(--light-bg) !important;
+  color:var(--light-text) !important;
+}
+
+.viewport-shell,
+.app,
+.workspace,
+.center,
+.right{
+  background:var(--light-bg) !important;
+}
+
+.header{
+  background:rgba(255,255,255,.97) !important;
+  border-bottom-color:var(--light-border) !important;
+  box-shadow:0 1px 3px rgba(0,0,0,.06) !important;
+}
+
+.brand,
+.brand small,
+.top-link{
+  color:var(--light-text) !important;
+}
+
+.panel,
+.stage,
+.control-card,
+.result-card,
+.quick,
+.advice,
+.info-couple-panel,
+.validity-popover,
+.phone-portrait-card,
+.ab-memory,
+.smartphone-tools-section{
+  background:var(--light-surface) !important;
+  color:var(--light-text) !important;
+  border-color:var(--light-border) !important;
+  box-shadow:var(--light-shadow) !important;
+}
+
+.left,
+.side-nav{
+  background:var(--light-surface-soft) !important;
+  border-color:var(--light-border) !important;
+}
+
+.nav-item{
+  background:#ffffff !important;
+  color:var(--light-text) !important;
+}
+
+.nav-item:hover,
+.nav-item:focus{
+  background:#f1f2f3 !important;
+}
+
+h1,h2,h3,
+.stage-title,
+.result-card strong,
+.quick strong,
+.advice strong,
+.info-couple-name{
+  color:var(--light-text) !important;
+}
+
+small,
+.control-note,
+.result-card small,
+.advice-row span,
+.info-couple-note,
+.info-couple-history,
+.stage-subtitle,
+.muted{
+  color:var(--light-muted) !important;
+}
+
+input,
+select{
+  background:#ffffff !important;
+  color:var(--light-text) !important;
+  border-color:#c8cbd0 !important;
+}
+
+.result-card,
+.advice-row,
+.info-couple-grid > div{
+  border-color:#e0e2e5 !important;
+}
+
+.stage{
+  background:#fbfbfa !important;
+}
+
+@media (max-width:599px){
+  body,
+  .viewport-shell,
+  .app,
+  .workspace,
+  .center,
+  .right{
+    background:#f1f2f3 !important;
+  }
+
+  .control-card,
+  .panel,
+  .stage,
+  .quick,
+  .advice,
+  .result-card,
+  .ab-memory,
+  .smartphone-tools-section{
+    background:#ffffff !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -7230,7 +7361,7 @@ window.addEventListener('load', function(){
         <p>Les références propres à un calcul sont indiquées directement dans <strong>Validité du calcul</strong>.</p>
       </div>
 
-      <div class="about-version">StereoLab — version 4.4.1<br>Conception : Jean-pierre COHEN</div>
+      <div class="about-version">StereoLab — version 4.4.1 · variante claire<br>Conception : Jean-pierre COHEN</div>
     </div>
   </section>
 </div>
