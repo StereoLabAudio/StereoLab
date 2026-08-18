@@ -3119,7 +3119,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.2 — hiérarchie smartphone terrain */
+/* StereoLab v4.4.3 — hiérarchie smartphone terrain */
 .smartphone-ab-anchor,
 .smartphone-tools-section{display:none}
 
@@ -3160,7 +3160,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.2 — ergonomie smartphone terrain */
+/* StereoLab v4.4.3 — ergonomie smartphone terrain */
 .smartphone-quick-anchor{display:none}
 
 @media (max-width:599px){
@@ -3227,6 +3227,58 @@ body.phone-landscape-blocked .phone-portrait-only{
   .smartphone-ab-anchor button[aria-label*="initial"],
   .smartphone-ab-anchor button[title*="initial"]{
     display:none !important;
+  }
+}
+</style>
+
+
+<style>
+/* StereoLab v4.4.3 — lisibilité Compatibilité mono + mémoire A/B plus compacte */
+@media (max-width:599px){
+
+  /* Compatibilité mono : même présence visuelle que Relation Temps / Intensité */
+  .quick .mono,
+  .quick [class*="mono"],
+  .quick [id*="mono"],
+  .quick [id*="Mono"]{
+    font-size:13px !important;
+    line-height:1.2 !important;
+  }
+
+  .quick .mono strong,
+  .quick [class*="mono"] strong,
+  .quick [id*="mono"] strong,
+  .quick [id*="Mono"] strong{
+    font-size:13px !important;
+    line-height:1.2 !important;
+  }
+
+  /* Mémoire A/B : réduire l'espace vertical autour et à l'intérieur */
+  .smartphone-ab-anchor{
+    margin-top:4px !important;
+    margin-bottom:2px !important;
+  }
+
+  .smartphone-ab-anchor .ab-memory{
+    padding:4px 6px !important;
+    gap:4px !important;
+    min-height:0 !important;
+    margin:0 !important;
+  }
+
+  .smartphone-ab-anchor .ab-memory-title{
+    margin:0 3px 0 0 !important;
+    font-size:9.5px !important;
+    line-height:1 !important;
+  }
+
+  .smartphone-ab-anchor .ab-btn,
+  .smartphone-ab-anchor .ab-store{
+    height:28px !important;
+    min-height:28px !important;
+    padding:2px 4px !important;
+    font-size:10px !important;
+    line-height:1 !important;
   }
 }
 </style>
@@ -7304,7 +7356,7 @@ window.addEventListener('load', function(){
         <p>Les références propres à un calcul sont indiquées directement dans <strong>Validité du calcul</strong>.</p>
       </div>
 
-      <div class="about-version">StereoLab — version 4.4.2<br>Conception : Jean-pierre COHEN</div>
+      <div class="about-version">StereoLab — version 4.4.3<br>Conception : Jean-pierre COHEN</div>
     </div>
   </section>
 </div>
@@ -7612,7 +7664,7 @@ window.addEventListener('load', function(){
 
 
 <script>
-/* StereoLab v4.4.2 — ordre smartphone optimisé terrain.
+/* StereoLab v4.4.3 — ordre smartphone optimisé terrain.
    Aucun changement du moteur acoustique. */
 (function(){
   const media = window.matchMedia('(max-width: 599px)');
@@ -7677,7 +7729,7 @@ window.addEventListener('load', function(){
 
 
 <script>
-/* StereoLab v4.4.2 — ergonomie smartphone terrain.
+/* StereoLab v4.4.3 — ergonomie smartphone terrain.
    Aucun changement du moteur acoustique. */
 (function(){
   const media = window.matchMedia('(max-width: 599px)');
