@@ -3117,6 +3117,47 @@ body.phone-landscape-blocked .phone-portrait-only{
 }
 </style>
 
+
+<style>
+/* StereoLab v4.4.1 — hiérarchie smartphone terrain */
+.smartphone-ab-anchor,
+.smartphone-tools-section{display:none}
+
+@media (max-width:599px){
+  .smartphone-ab-anchor{
+    display:block !important;
+    margin-top:10px;
+  }
+  .smartphone-ab-anchor .ab-memory{
+    display:grid !important;
+    width:100% !important;
+    box-sizing:border-box !important;
+  }
+  .smartphone-tools-section{
+    display:block !important;
+  }
+  .smartphone-tools-anchor{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-top:8px;
+  }
+  .smartphone-tools-anchor .nav-item{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    min-height:52px;
+    width:100% !important;
+    box-sizing:border-box !important;
+    margin:0 !important;
+  }
+  .smartphone-tools-section .info-couple-panel{
+    width:100% !important;
+    margin:10px 0 0 !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -3467,7 +3508,10 @@ body.phone-landscape-blocked .phone-portrait-only{
         </div>
       </section>
 
-      <!-- v4.3.4 — INFOS COUPLE placé directement sous les curseurs sur smartphone. -->
+      <!-- v4.4.1 — ancre smartphone : mémoire A/B juste après les réglages. -->
+<div id="smartphoneABAnchor" class="smartphone-ab-anchor" hidden></div>
+
+<!-- v4.3.4 — INFOS COUPLE placé directement sous les curseurs sur smartphone. -->
       <section class="info-couple-panel" id="infoCouplePanel" hidden>
       <div class="info-couple-head">
       <h2>INFOS COUPLE</h2>
@@ -3492,14 +3536,14 @@ body.phone-landscape-blocked .phone-portrait-only{
     </section>
 
     <aside class="right">
-      <section class="panel results">
+      <section class="panel results validity-section">
         <h2 class="validity-heading">VALIDITÉ DU CALCUL <button type="button" class="info-dot" id="validityInfoButton" aria-label="Informations sur la validité du calcul">i</button></h2>
         <div class="result-card validation-result warning" id="validationResultCard">
           <div class="result-icon" id="validationResultIcon">!</div><div>STATUT<strong id="validationResultLevel">WARNING</strong><small id="validationResultMessage" class="validity-detail-source">Angle utile indisponible — modèle acoustique en attente de validation.</small><div class="xy-inline-diagnostic validity-detail-source" id="xyResearchCard"><b id="xyResearchAngle">—</b><span id="xyResearchDetails">Comparaison avec la référence SRA classique.</span></div></div>
         </div>
       </section>
 
-      <section class="panel results">
+      <section class="panel results parameters-section">
         <h2>PARAMÈTRES DU COUPLE</h2>
         <div class="result-card green useful-angle-result">
           <div class="result-icon">∠</div><div>ANGLE UTILE DE PRISE DE SON
@@ -3536,6 +3580,12 @@ body.phone-landscape-blocked .phone-portrait-only{
         <p id="usageAdviceExamples" class="usage-advice-examples"></p>
       </section>
     
+      <!-- v4.4.1 — Infos couple / Comparaison en fin de parcours smartphone. -->
+      <section id="smartphoneToolsSection" class="panel smartphone-tools-section" hidden>
+        <h2>INFOS COUPLE / COMPARAISON</h2>
+        <div id="smartphoneToolsAnchor" class="smartphone-tools-anchor"></div>
+      </section>
+
       <div class="validity-popover" id="validityPopover" hidden>
         <div class="validity-popover-head">
           <strong>DÉTAILS DU CALCUL</strong>
@@ -7180,7 +7230,7 @@ window.addEventListener('load', function(){
         <p>Les références propres à un calcul sont indiquées directement dans <strong>Validité du calcul</strong>.</p>
       </div>
 
-      <div class="about-version">StereoLab — version 4.4.0<br>Conception : Jean-pierre COHEN</div>
+      <div class="about-version">StereoLab — version 4.4.1<br>Conception : Jean-pierre COHEN</div>
     </div>
   </section>
 </div>
@@ -7483,6 +7533,71 @@ window.addEventListener('load', function(){
   /* Certains navigateurs n'autorisent le verrouillage qu'après un geste utilisateur. */
   document.addEventListener('pointerdown',tryPortraitLock,{once:true,passive:true});
   document.addEventListener('touchstart',tryPortraitLock,{once:true,passive:true});
+})();
+</script>
+
+
+<script>
+/* StereoLab v4.4.1 — ordre smartphone optimisé terrain.
+   Aucun changement du moteur acoustique. */
+(function(){
+  const media = window.matchMedia('(max-width: 599px)');
+
+  function syncSmartphoneWorkflow(){
+    const leftNav = document.querySelector('.side-nav');
+    const center = document.querySelector('.center');
+    const right = document.querySelector('.right');
+    const abMemory = document.querySelector('.ab-memory');
+    const abAnchor = document.getElementById('smartphoneABAnchor');
+    const infoBtn = document.getElementById('infoCoupleButton');
+    const comparisonBtn = document.getElementById('comparisonButton');
+    const infoPanel = document.getElementById('infoCouplePanel');
+    const toolsSection = document.getElementById('smartphoneToolsSection');
+    const toolsAnchor = document.getElementById('smartphoneToolsAnchor');
+    const validity = document.querySelector('.validity-section');
+    const parameters = document.querySelector('.parameters-section');
+    const quick = document.querySelector('.quick');
+    const advice = document.querySelector('.advice');
+
+    if(!leftNav || !center || !right || !abMemory || !abAnchor ||
+       !infoBtn || !comparisonBtn || !infoPanel || !toolsSection || !toolsAnchor ||
+       !validity || !parameters || !quick || !advice) return;
+
+    if(media.matches){
+      if(abMemory.parentElement !== abAnchor) abAnchor.appendChild(abMemory);
+      abAnchor.hidden = false;
+
+      /* Analyse rapide -> validité -> paramètres -> conseils -> infos/comparaison */
+      right.insertBefore(quick, validity);
+      right.insertBefore(validity, parameters);
+      right.insertBefore(parameters, advice);
+      right.insertBefore(advice, toolsSection);
+
+      if(infoBtn.parentElement !== toolsAnchor) toolsAnchor.appendChild(infoBtn);
+      if(comparisonBtn.parentElement !== toolsAnchor) toolsAnchor.appendChild(comparisonBtn);
+      if(infoPanel.parentElement !== toolsSection) toolsSection.appendChild(infoPanel);
+      toolsSection.hidden = false;
+    }else{
+      if(infoBtn.parentElement !== leftNav) leftNav.insertBefore(infoBtn, leftNav.firstChild);
+      if(comparisonBtn.parentElement !== leftNav){
+        if(infoBtn.nextSibling) leftNav.insertBefore(comparisonBtn, infoBtn.nextSibling);
+        else leftNav.appendChild(comparisonBtn);
+      }
+      if(abMemory.parentElement !== leftNav) leftNav.appendChild(abMemory);
+      if(infoPanel.parentElement !== center) center.appendChild(infoPanel);
+
+      right.insertBefore(validity, right.firstChild);
+      right.insertBefore(parameters, quick);
+      right.insertBefore(quick, advice);
+
+      abAnchor.hidden = true;
+      toolsSection.hidden = true;
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', syncSmartphoneWorkflow);
+  window.addEventListener('resize', syncSmartphoneWorkflow);
+  window.addEventListener('orientationchange', () => setTimeout(syncSmartphoneWorkflow, 80));
 })();
 </script>
 

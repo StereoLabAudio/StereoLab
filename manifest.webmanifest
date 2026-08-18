@@ -1,7 +1,7 @@
 {
   "name": "StereoLab — Calculateur de couples stéréophoniques",
   "short_name": "StereoLab",
-  "description": "Calculateur et outil pédagogique pour les couples stéréophoniques.",
+  "description": "Calculateur et outil pédagogique pour les couples stéréophoniques — version 4.4.1.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
