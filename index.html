@@ -3119,7 +3119,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.6 — hiérarchie smartphone terrain */
+/* StereoLab v4.4.7 — hiérarchie smartphone terrain */
 .smartphone-ab-anchor,
 .smartphone-tools-section{display:none}
 
@@ -3160,7 +3160,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.6 — ergonomie smartphone terrain */
+/* StereoLab v4.4.7 — ergonomie smartphone terrain */
 .smartphone-quick-anchor{display:none}
 
 @media (max-width:599px){
@@ -3233,7 +3233,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.6 — lisibilité <span class="mono-label-emphasis">Compatibilité mono</span> + mémoire A/B plus compacte */
+/* StereoLab v4.4.7 — lisibilité <span class="mono-label-emphasis">Compatibilité mono</span> + mémoire A/B plus compacte */
 @media (max-width:599px){
 
   /* Compatibilité mono : même présence visuelle que Relation Temps / Intensité */
@@ -3285,7 +3285,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.6 — libellé Compatibilité mono plus lisible sur smartphone */
+/* StereoLab v4.4.7 — libellé Compatibilité mono plus lisible sur smartphone */
 @media (max-width:599px){
   .mono-label-emphasis{
     font-size:13px !important;
@@ -3297,7 +3297,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.6 — correction ciblée smartphone */
+/* StereoLab v4.4.7 — correction ciblée smartphone */
 @media (max-width:599px){
 
   /* Libellé Compatibilité mono à la même échelle que Relation Temps / Intensité */
@@ -3348,7 +3348,7 @@ body.phone-landscape-blocked .phone-portrait-only{
 
 
 <style>
-/* StereoLab v4.4.6 — sécurité orientation smartphone */
+/* StereoLab v4.4.7 — sécurité orientation smartphone */
 .phone-portrait-only{
   display:none;
 }
@@ -3405,6 +3405,67 @@ body.phone-landscape-blocked .phone-portrait-only{
     line-height:1.35 !important;
     color:#c7d2da !important;
   }
+}
+</style>
+
+
+<style>
+/* StereoLab v4.4.7 — verrouillage paysage smartphone robuste.
+   La classe est posée uniquement sur téléphone par JavaScript, donc
+   aucune dépendance à max-width en mode paysage. */
+body.phone-landscape-blocked{
+  overflow:hidden !important;
+  width:100vw !important;
+  height:100vh !important;
+  background:#07141d !important;
+}
+
+body.phone-landscape-blocked .viewport-shell,
+body.phone-landscape-blocked #stereolabApp{
+  display:none !important;
+}
+
+body.phone-landscape-blocked .phone-portrait-only{
+  position:fixed !important;
+  inset:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  z-index:2147483647 !important;
+  background:#07141d !important;
+  padding:24px !important;
+  box-sizing:border-box !important;
+}
+
+body.phone-landscape-blocked .phone-portrait-card{
+  display:block !important;
+  width:min(360px,88vw) !important;
+  background:#0c1d29 !important;
+  border:1px solid #355064 !important;
+  border-radius:20px !important;
+  padding:26px 22px !important;
+  text-align:center !important;
+  color:#f4f7fa !important;
+  box-shadow:0 10px 34px rgba(0,0,0,.35) !important;
+}
+
+body.phone-landscape-blocked .phone-portrait-icon{
+  font-size:44px !important;
+  line-height:1 !important;
+  margin-bottom:12px !important;
+}
+
+body.phone-landscape-blocked .phone-portrait-card strong{
+  display:block !important;
+  font-size:20px !important;
+  margin-bottom:8px !important;
+}
+
+body.phone-landscape-blocked .phone-portrait-card span{
+  display:block !important;
+  font-size:15px !important;
+  line-height:1.35 !important;
+  color:#c7d2da !important;
 }
 </style>
 
@@ -7481,7 +7542,7 @@ window.addEventListener('load', function(){
         <p>Les références propres à un calcul sont indiquées directement dans <strong>Validité du calcul</strong>.</p>
       </div>
 
-      <div class="about-version">StereoLab — version 4.4.6<br>Conception : Jean-pierre COHEN</div>
+      <div class="about-version">StereoLab — version 4.4.7<br>Conception : Jean-pierre COHEN</div>
     </div>
   </section>
 </div>
@@ -7789,7 +7850,7 @@ window.addEventListener('load', function(){
 
 
 <script>
-/* StereoLab v4.4.6 — ordre smartphone optimisé terrain.
+/* StereoLab v4.4.7 — ordre smartphone optimisé terrain.
    Aucun changement du moteur acoustique. */
 (function(){
   const media = window.matchMedia('(max-width: 599px)');
@@ -7854,7 +7915,7 @@ window.addEventListener('load', function(){
 
 
 <script>
-/* StereoLab v4.4.6 — ergonomie smartphone terrain.
+/* StereoLab v4.4.7 — ergonomie smartphone terrain.
    Aucun changement du moteur acoustique. */
 (function(){
   const media = window.matchMedia('(max-width: 599px)');
@@ -7964,7 +8025,7 @@ window.addEventListener('load', function(){
 
 
 <script>
-/* StereoLab v4.4.6 — garde portrait smartphone */
+/* StereoLab v4.4.7 — garde portrait smartphone */
 (function(){
   function syncPhoneOrientationGuardV446(){
     const shortSide = Math.min(window.innerWidth, window.innerHeight);
@@ -7987,6 +8048,48 @@ window.addEventListener('load', function(){
     setTimeout(syncPhoneOrientationGuardV446, 100);
     setTimeout(syncPhoneOrientationGuardV446, 350);
   });
+})();
+</script>
+
+
+<script>
+/* StereoLab v4.4.7 — détection smartphone paysage indépendante de la largeur CSS */
+(function(){
+  function syncPhoneLandscapeLockV447(){
+    const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+    const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+
+    const screenW = window.screen ? window.screen.width : vw;
+    const screenH = window.screen ? window.screen.height : vh;
+    const shortSide = Math.min(screenW, screenH, vw, vh);
+
+    /* Un téléphone reste identifié par son petit côté, même tourné en paysage. */
+    const isPhone = shortSide <= 599;
+    const isLandscape = vw > vh;
+    const blocked = isPhone && isLandscape;
+
+    document.body.classList.toggle('phone-landscape-blocked', blocked);
+
+    const overlay = document.getElementById('phonePortraitOnly');
+    if(overlay){
+      overlay.hidden = !blocked;
+      overlay.setAttribute('aria-hidden', blocked ? 'false' : 'true');
+    }
+  }
+
+  function refresh(){
+    syncPhoneLandscapeLockV447();
+    setTimeout(syncPhoneLandscapeLockV447, 80);
+    setTimeout(syncPhoneLandscapeLockV447, 250);
+  }
+
+  window.addEventListener('DOMContentLoaded', refresh);
+  window.addEventListener('load', refresh);
+  window.addEventListener('resize', refresh);
+  window.addEventListener('orientationchange', refresh);
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize', refresh);
+  }
 })();
 </script>
 
